@@ -1,0 +1,11 @@
+/* TEAM */
+Founder / Principal Consultant: Eric Starobinsky
+Site: https://digitalcultureit.com
+Location: Bergen County, New Jersey, USA
+
+/* SITE */
+Last update: 2026/10/26
+Language: English
+Standards: HTML5, CSS3, JavaScript
+Hosting: AWS (S3 + CloudFront)
+Forms: Formspree

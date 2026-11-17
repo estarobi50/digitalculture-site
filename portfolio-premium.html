@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bergen County NJ Web Design | Digital Culture IT Solutions</title>
+<meta name="description" content="Web design, hosting and support for small businesses in Bergen County, NJ. See four live sites we built, from dental practices to property management.">
+<meta name="theme-color" content="#07090d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307090d'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%2319e3ff' font-family='Georgia,serif'%3EDC%3C/text%3E%3C/svg%3E">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://digitalcultureit.com/portfolio.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Digital Culture IT Solutions">
+<meta property="og:title" content="Bergen County NJ Web Design | Digital Culture IT Solutions">
+<meta property="og:description" content="Websites for small businesses, built and kept running by an IT company. See four live sites.">
+<meta property="og:url" content="https://digitalcultureit.com/portfolio.html">
+<meta property="og:image" content="https://digitalcultureit.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bergen County NJ Web Design | Digital Culture IT Solutions">
+<meta name="twitter:description" content="Websites for small businesses, built and kept running by an IT company. See four live sites.">
+<meta name="twitter:image" content="https://digitalcultureit.com/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Digital Culture Web Designs","url":"https://digitalcultureit.com/portfolio.html",
+ "isPartOf":{"@type":"WebSite","name":"Digital Culture IT Solutions","url":"https://digitalcultureit.com/"},
+ "publisher":{"@type":"Organization","name":"Digital Culture IT Solutions","url":"https://digitalcultureit.com/","telephone":"+1-551-236-4157","email":"digitalcultureits@gmail.com"},
+ "mainEntity":{"@type":"ItemList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Vesper Estates","url":"https://estarobi50.github.io/digitalculture-design-projects/"},
+  {"@type":"ListItem","position":2,"name":"H2O Dental","url":"https://estarobi50.github.io/digitalculture-design-projects/northlight-dental/northlight-dental/"},
+  {"@type":"ListItem","position":3,"name":"Anchorage Management","url":"https://s3.us-east-1.amazonaws.com/anchoragemgmt.com-562824319788-us-east-1-an/index-ai.html"},
+  {"@type":"ListItem","position":4,"name":"Haworth Dental","url":"https://estarobi50.github.io/digitalculture-design-projects/haworth/"}]}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07090d; --night:#0d1219; --raise:#111821;
+  --bone:#ece7dc; --dim:#a3acb7; --faint:#8b94a0; --line:rgba(236,231,220,.14);
+  --cyan:#19e3ff; --tungsten:#f2c98a; --lagoon:#7fd6d2;
+  --r-sm:4px; --r-md:10px; --r-pill:999px;
+  --s-1:8px; --s-2:16px; --s-3:24px; --s-4:40px; --s-5:64px; --s-6:104px;
+  --gutter:clamp(20px,4vw,56px); --max:1380px;
+  --shadow-lift:0 50px 100px -30px rgba(0,0,0,.85),0 0 0 1px rgba(236,231,220,.1);
+  --bar:12vh; --ease:cubic-bezier(.77,0,.18,1);
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Manrope",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--ink);color:var(--bone);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--tungsten);outline-offset:4px}
+.skip{position:fixed;left:16px;top:-60px;z-index:200;padding:10px 18px;background:var(--bone);color:var(--ink);border-radius:var(--r-pill);font-weight:600;text-decoration:none;transition:top .2s}
+.skip:focus{top:16px}
+
+/* film grain, vignette, opening bars */
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-4%)}60%{transform:translate(-2%,3%)}80%{transform:translate(4%,1%)}100%{transform:translate(0,0)}}
+.vignette{position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 60%,rgba(0,0,0,.5) 100%)}
+.bar{position:fixed;left:0;right:0;height:var(--bar);background:#000;z-index:100;transition:transform 1.6s var(--ease) .15s}
+.bar.top{top:0}.bar.bot{bottom:0}
+body.go .bar.top{transform:translateY(-100%)}
+body.go .bar.bot{transform:translateY(100%)}
+.curtain{position:fixed;inset:0;background:#000;z-index:99;pointer-events:none;transition:opacity 1.4s ease .1s}
+body.go .curtain{opacity:0}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);padding:22px var(--gutter);
+  opacity:0;transition:opacity 1.2s ease 1.8s,background .3s,backdrop-filter .3s}
+body.go nav{opacity:1}
+nav.solid{background:rgba(7,9,13,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .mark{font-family:var(--serif);font-size:1.3rem;text-decoration:none;white-space:nowrap}
+nav .links{display:flex;align-items:center;gap:clamp(14px,2.6vw,32px);font-size:.9rem}
+nav .links a{text-decoration:none;color:var(--dim);transition:color .2s}
+nav .links a:hover{color:var(--bone)}
+nav .links a.back{color:var(--bone)}
+nav .links a.go{padding:9px 18px;border:1px solid rgba(236,231,220,.4);border-radius:var(--r-pill);color:var(--bone);transition:background .25s,color .25s}
+nav .links a.go:hover{background:var(--bone);color:var(--ink)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 28px;border-radius:var(--r-pill);text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid transparent;transition:background .3s,color .3s,border-color .3s,gap .3s}
+.btn svg{width:16px;height:16px;flex:none}
+.btn.solid{background:var(--bone);color:var(--ink)}
+.btn.solid:hover{background:var(--cyan);gap:16px}
+.btn.line{border-color:rgba(236,231,220,.45);color:var(--bone);background:rgba(7,9,13,.35)}
+.btn.line:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+
+.totop{position:fixed;right:clamp(16px,2.5vw,32px);bottom:clamp(16px,2.5vw,32px);z-index:85;width:48px;height:48px;border-radius:50%;border:1px solid rgba(236,231,220,.4);background:rgba(7,9,13,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--bone);display:grid;place-items:center;cursor:pointer;
+  opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .3s,transform .3s,background .25s,color .25s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:var(--bone);color:var(--ink)}
+.totop svg{width:18px;height:18px}
+@media (prefers-reduced-motion:reduce){.totop{transition:none}}
+/* hero */
+.hero{position:relative;height:100svh;min-height:660px;overflow:hidden;display:grid;place-items:center;isolation:isolate}
+.reel{position:absolute;inset:-6%;z-index:-2;will-change:transform}
+.reel canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(55% 45% at 50% 52%,rgba(7,9,13,.74),rgba(7,9,13,0) 100%),linear-gradient(180deg,rgba(7,9,13,.35),rgba(7,9,13,0) 30%,rgba(7,9,13,.96))}
+.leak{position:absolute;inset:0;z-index:-1;mix-blend-mode:screen;pointer-events:none;
+  background:radial-gradient(40% 60% at 85% 10%,rgba(25,227,255,.16),transparent 70%),radial-gradient(35% 50% at 8% 95%,rgba(90,110,255,.14),transparent 70%);animation:flicker 7s ease-in-out infinite}
+@keyframes flicker{0%,100%{opacity:.9}45%{opacity:.6}50%{opacity:1}55%{opacity:.7}}
+.title{text-align:center;padding:0 5vw;max-width:1180px}
+.title h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,9vw,8.8rem);line-height:.94;letter-spacing:.14em;
+  filter:blur(18px);opacity:0;transform:scale(1.06);
+  transition:letter-spacing 3.2s var(--ease) 1.1s,filter 2.2s ease 1.3s,opacity 2s ease 1.3s,transform 3.2s var(--ease) 1.1s;
+  text-shadow:0 0 90px rgba(25,227,255,.22)}
+body.go .title h1{letter-spacing:-.012em;filter:blur(0);opacity:1;transform:none}
+.title p{margin:var(--s-3) auto 0;max-width:44ch;color:#d3d7dc;font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:300;opacity:0;transform:translateY(14px);transition:opacity 1.4s ease 2.5s,transform 1.4s ease 2.5s}
+.title .actions{display:flex;flex-wrap:wrap;gap:var(--s-2);justify-content:center;margin-top:var(--s-4);opacity:0;transition:opacity 1.2s ease 3s}
+body.go .title p,body.go .title .actions{opacity:1;transform:none}
+.scrollhint{position:absolute;bottom:34px;left:50%;width:1px;height:56px;background:linear-gradient(var(--bone),transparent);opacity:0;transition:opacity 1s ease 3.4s}
+body.go .scrollhint{opacity:.7}
+
+/* section scaffolding */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sec-head{max-width:62ch;margin-bottom:clamp(48px,7vw,96px)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.01em}
+.sec-head p{margin-top:var(--s-2);color:var(--dim);font-weight:300;font-size:1.08rem;max-width:52ch}
+
+/* work: four cases, text beside a live browser */
+.work{padding:clamp(90px,12vw,170px) 0 var(--s-5)}
+.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,88px);align-items:center;margin-bottom:clamp(80px,11vw,160px)}
+.case:nth-of-type(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.case:nth-of-type(even) .copy{order:2}
+.case .copy{max-width:46ch}
+.case h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1}
+.case .kind{margin-top:var(--s-2);color:var(--tone);font-size:.95rem;font-weight:500}
+.case p.sum{margin-top:var(--s-3);color:#cdd2d8;font-weight:300;font-size:1.05rem}
+.case ul{margin-top:var(--s-3);list-style:none;display:grid;gap:10px}
+.case li{position:relative;padding-left:22px;color:var(--dim);font-size:.95rem}
+.case li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:1px;background:var(--tone)}
+.case .visit{margin-top:var(--s-4)}
+.case.vesper{--tone:var(--tungsten)} .case.dental{--tone:var(--lagoon)} .case.anchorage{--tone:#8fb4e8} .case.haworth{--tone:var(--lagoon)}
+.case .visit.btn.solid:hover{background:var(--tone)}
+
+.browser{position:relative;border-radius:var(--r-md);background:var(--raise);box-shadow:var(--shadow-lift);overflow:hidden;transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
+.browser:hover,.browser:focus-within{transform:translateY(-6px)}
+.browser .chrome{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#0a0f16;border-bottom:1px solid var(--line)}
+.browser .chrome i{width:9px;height:9px;border-radius:50%;background:rgba(236,231,220,.22)}
+.browser .chrome span{margin-left:10px;font-size:.78rem;color:var(--faint)}
+.viewport{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--night) center/cover no-repeat}
+.viewport iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;opacity:0;transition:opacity .9s ease;background:transparent}
+.viewport iframe.ready{opacity:1}
+.viewport .hit{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;justify-content:flex-end;padding:var(--s-2);
+  background:linear-gradient(180deg,transparent 60%,rgba(7,9,13,.55))}
+.viewport .hit b{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-pill);background:var(--bone);color:var(--ink);font-size:.82rem;font-weight:600;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.browser:hover .hit b,.hit:focus-visible b{opacity:1;transform:none}
+.hit:focus-visible{outline-offset:-4px}
+
+/* how it works */
+.process{padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--line)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-4);counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:15px;height:1px;background:var(--line)}
+.steps li{position:relative;counter-increment:s;padding-top:var(--s-5)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:31px;height:31px;border-radius:50%;background:var(--ink);border:1px solid rgba(236,231,220,.4);display:grid;place-items:center;font-size:.85rem;font-weight:600}
+.steps h3{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.05}
+.steps p{margin-top:12px;color:var(--dim);font-weight:300;max-width:30ch}
+
+/* why an IT company */
+.why{padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--line)}
+.why .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,100px);align-items:start}
+.why dl{display:grid;gap:var(--s-4)}
+.why dt{font-family:var(--serif);font-size:1.9rem;line-height:1.1}
+.why dd{margin-top:8px;color:var(--dim);font-weight:300;max-width:50ch}
+.why .row{padding-bottom:var(--s-4);border-bottom:1px solid var(--line)}
+.why .row:last-child{border-bottom:0;padding-bottom:0}
+
+/* start */
+.start{position:relative;padding:clamp(100px,14vw,200px) 0;border-top:1px solid var(--line);text-align:center;overflow:hidden;isolation:isolate}
+.start::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 50% 100%,rgba(25,227,255,.14),transparent 70%)}
+.start h2{font-size:clamp(2.6rem,6.4vw,6rem);max-width:15ch;margin:0 auto}
+.start p{margin:var(--s-3) auto 0;color:var(--dim);font-weight:300;font-size:1.1rem;max-width:46ch}
+.start .actions{display:flex;flex-wrap:wrap;gap:var(--s-2);justify-content:center;margin-top:var(--s-4)}
+.start .alt{margin-top:var(--s-3);font-size:.95rem}
+.start .alt a{color:var(--bone);text-underline-offset:4px}
+
+footer{padding:var(--s-3) var(--gutter) var(--s-4);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
+footer a{color:var(--bone);text-underline-offset:3px}
+
+@media (max-width:900px){
+  .case,.case:nth-of-type(even),.why .grid{grid-template-columns:1fr}
+  .case:nth-of-type(even) .copy{order:0}
+  .case .copy{max-width:none}
+  .steps{grid-template-columns:1fr 1fr;row-gap:var(--s-5)}
+  .steps::before{display:none}
+  .viewport .hit b{opacity:1;transform:none}
+}
+@media (max-width:640px){
+  :root{--bar:8vh}
+  nav{padding:18px var(--gutter);gap:12px}
+  nav .links a:not(.back){display:none}
+  nav .mark{font-size:1.08rem}
+  nav .links a{white-space:nowrap;font-size:.85rem}
+  .steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .grain,.leak{animation:none!important}
+  .bar,.curtain{display:none}
+  nav,.title h1,.title p,.title .actions,.scrollhint{transition:none!important;opacity:1!important;filter:none!important;transform:none!important;letter-spacing:-.012em}
+  .title p,.title .actions,.scrollhint{letter-spacing:normal}
+  .browser,.viewport iframe{transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ===== MAIN-SITE THEME (graphite glass, steel blue) applied to the portfolio ===== */
+:root{
+  --ink:#07090d; --night:#0b1018; --raise:rgba(12,16,22,.55);
+  --bone:#ebf0f6; --dim:rgba(200,210,222,.78); --faint:rgba(170,185,205,.75); --line:rgba(255,255,255,.12);
+  --cyan:#5aa9ff; --tungsten:#8cc4ff; --lagoon:#7fd6d2;
+  --r-sm:8px; --r-md:14px;
+  --shadow-lift:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(0,0,0,.35),0 24px 48px -20px rgba(0,0,0,.85);
+  --sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Segoe UI',system-ui,sans-serif;
+  --serif:var(--sans);
+}
+html{background:#07090d}
+body{background:transparent;font-family:var(--sans)}
+body::before{content:"";position:fixed;inset:-12vh 0;z-index:-1;pointer-events:none;
+  background:radial-gradient(48vmax 40vmax at 8% 0%,#16324f 0%,transparent 60%),radial-gradient(44vmax 38vmax at 100% 8%,#0f2a44 0%,transparent 58%),radial-gradient(50vmax 42vmax at 92% 100%,#1a2230 0%,transparent 62%),radial-gradient(40vmax 34vmax at 0% 100%,#1c1a17 0%,transparent 60%),radial-gradient(36vmax 28vmax at 55% 50%,#0e1b2b 0%,transparent 64%),#07090d}
+::selection{background:#2f7bd8;color:#fff}
+:focus-visible{outline:2px solid #8cc4ff}
+/* no black opening strips or curtain */
+.bar,.curtain{display:none!important}
+.grain{opacity:.05}
+/* no cursor light in the hero */
+.leak{opacity:.5;animation:none}
+
+/* header: same floating glass bar as the main site */
+nav{opacity:1!important;transition:none;margin:14px clamp(10px,2vw,28px);padding:14px 22px;border:1px solid rgba(90,169,255,.28);border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%),linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.02) 50%,rgba(255,255,255,.05)),rgba(12,16,22,.55);
+  -webkit-backdrop-filter:blur(22px) saturate(1.25) brightness(.7);backdrop-filter:blur(22px) saturate(1.25) brightness(.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(0,0,0,.35),0 24px 48px -20px rgba(0,0,0,.85)}
+nav.solid{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%),rgba(12,16,22,.72);border-bottom:1px solid rgba(90,169,255,.28)}
+nav .mark{display:flex;flex-direction:column;line-height:1.1;font-family:var(--sans);font-weight:700;font-size:1.2rem;letter-spacing:-.005em;color:#fff;text-transform:none}
+nav .mark small{font-size:.56rem;font-weight:500;letter-spacing:.22em;color:rgba(160,185,210,.85);margin-top:3px;text-transform:uppercase}
+nav .links{gap:10px}
+nav .links a,nav .links a.back,nav .links a.go{padding:.5rem .95rem;border:0;border-radius:8px;color:#fff;font-weight:600;font-size:.92rem;letter-spacing:.02em;
+  background:rgba(90,169,255,.16);box-shadow:inset 0 -2px 0 #3b8bff;transition:background .25s}
+nav .links a:hover,nav .links a.back:hover,nav .links a.go:hover{background:rgba(90,169,255,.30);color:#fff;box-shadow:inset 0 -2px 0 #6fb0ff}
+nav .links a.phone{background:linear-gradient(180deg,#2f7bd8,#1a56b0);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 18px -8px rgba(31,111,235,.8);font-size:.85rem}
+nav .links a.phone:hover{background:linear-gradient(180deg,#3b8bff,#1f66cc)}
+
+/* type */
+h2,.case h3,.steps h3,.why dt,.title h1{font-family:var(--sans)}
+.title h1{font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,7vw,6.2rem);line-height:1;text-shadow:none}
+body.go .title h1{letter-spacing:-.01em}
+h2{font-weight:800;text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.08;letter-spacing:.005em;position:relative;padding-bottom:18px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:3px;background:linear-gradient(90deg,#3b8bff,transparent)}
+.start h2::after{left:50%;transform:translateX(-50%)}
+.case h3{font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,3.4vw,2.8rem);letter-spacing:.005em}
+.case .kind{letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:700}
+.case p.sum,.title p,.sec-head p,.start p,.steps p,.why dd,.case li{font-weight:400}
+.steps h3,.why dt{font-weight:700;font-size:1.35rem;color:#fff}
+.case.vesper{--tone:#8cc4ff}.case.dental{--tone:#7fd6d2}.case.anchorage{--tone:#8fb4e8}.case.haworth{--tone:#5aa9ff}
+
+/* buttons */
+.btn{border-radius:8px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:.86rem}
+.btn.solid{background:linear-gradient(180deg,#2f7bd8,#1a56b0);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 14px 28px -12px rgba(31,111,235,.8)}
+.btn.solid:hover{background:linear-gradient(180deg,#3b8bff,#1f66cc);color:#fff}
+.case .visit.btn.solid:hover{background:linear-gradient(180deg,#3b8bff,#1f66cc)}
+.btn.line{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.28);color:#fff}
+.btn.line:hover{background:rgba(90,169,255,.18);border-color:#5aa9ff;color:#fff}
+.viewport .hit b{background:linear-gradient(180deg,#2f7bd8,#1a56b0);color:#fff;border-radius:8px;text-transform:uppercase;letter-spacing:.08em}
+
+/* glass browser frames */
+.browser{border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%),linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.02) 50%,rgba(255,255,255,.05)),rgba(12,16,22,.55);
+  -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px)}
+.browser:hover,.browser:focus-within{border-color:rgba(90,169,255,.55)}
+.browser .chrome{background:rgba(0,0,0,.3)}
+.browser .chrome i{background:rgba(255,255,255,.2)}
+
+/* sections */
+.process,.why,.start{border-top:1px solid rgba(255,255,255,.1)}
+.steps li::before{background:rgba(90,169,255,.16);border:1px solid rgba(90,169,255,.5);color:#fff}
+.steps::before{background:rgba(255,255,255,.12)}
+.why .row{border-color:rgba(255,255,255,.1)}
+.start::before{background:radial-gradient(50% 60% at 50% 100%,rgba(59,139,255,.18),transparent 70%)}
+.start .alt a{color:#8cc4ff}
+.totop{background:linear-gradient(180deg,#2f7bd8,#1a56b0);border:0;border-radius:10px;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 10px 24px -8px rgba(31,111,235,.8)}
+.totop:hover{background:linear-gradient(180deg,#3b8bff,#1f66cc);color:#fff}
+
+/* footer: glass, like the main site */
+footer{margin:0 clamp(10px,2vw,28px);padding:var(--s-3) var(--s-4) var(--s-4);border:1px solid rgba(255,255,255,.1);border-bottom:0;border-radius:18px 18px 0 0;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.3)),rgba(6,8,12,.8);color:rgba(255,255,255,.7)}
+footer a{color:#8cc4ff}
+
+@media(max-width:640px){
+  nav{margin:8px;padding:10px 12px}
+  nav .links a:not(.back):not(.go):not(.phone){display:none}
+  nav .links a.go{display:none}
+  nav .links a,nav .links a.back,nav .links a.phone{min-height:44px;display:inline-flex;align-items:center}
+  nav .mark{font-size:.95rem}
+  nav .mark small{font-size:.5rem}
+  .title h1{font-size:clamp(2.1rem,10vw,3rem)}
+  .btn{min-height:48px}
+  footer{padding:var(--s-3)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="bar top" aria-hidden="true"></div>
+<div class="bar bot" aria-hidden="true"></div>
+<div class="curtain" aria-hidden="true"></div>
+
+<nav id="nav" aria-label="Main">
+  <a class="mark" href="/">Digital Culture<small>IT Solutions</small></a>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#why">Why us</a>
+    <a class="back keep" href="/">Main site</a>
+    <a class="go keep" href="https://digitalcultureit.com/#contact">Start a project</a>
+    <a class="phone keep" href="tel:+15512364157">(551) 236-4157</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="reel" id="reel" aria-hidden="true"><canvas id="fx"></canvas></div>
+  <div class="leak" aria-hidden="true"></div>
+  <div class="title">
+    <h1>Websites that move.</h1>
+    <p>We design and build websites for small businesses, then host and support them. Four live examples below.</p>
+    <div class="actions">
+      <a class="btn solid" href="#work">See the work
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v12M3 9l5 5 5-5"/></svg>
+      </a>
+      <a class="btn line" href="https://digitalcultureit.com/#contact">Start a project</a>
+    </div>
+  </div>
+  <div class="scrollhint" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="work" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="work-h">Four sites, three industries.</h2>
+      <p>Each preview below is the real site, running. Select one to open it in a new tab.</p>
+    </div>
+
+    <article class="case vesper">
+      <div class="copy">
+        <h3>Vesper Estates</h3>
+        <p class="kind">Luxury real estate</p>
+        <p class="sum">Homes shown at blue hour. An entry screen sets the mood, then ten listings you can sort by price and size, a monthly payment estimator and a viewing request form.</p>
+        <ul><li>Intro screen</li><li>Sortable listings</li><li>Payment calculator</li><li>Viewing request form</li></ul>
+        <a class="btn solid visit" href="https://estarobi50.github.io/digitalculture-design-projects/" target="_blank" rel="noopener">Open Vesper Estates
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+      <div class="browser">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Live site</span></div>
+        <div class="viewport" style="background-image:url('https://estarobi50.github.io/digitalculture-design-projects/img/l5.jpg')">
+          <iframe data-src="https://estarobi50.github.io/digitalculture-design-projects/" title="Live preview of the Vesper Estates website" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
+          <a class="hit" tabindex="-1" aria-hidden="true" href="https://estarobi50.github.io/digitalculture-design-projects/" target="_blank" rel="noopener"><b>Open live site</b></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case dental">
+      <div class="copy">
+        <h3>H2O Dental</h3>
+        <p class="kind">General and cosmetic dentistry</p>
+        <p class="sum">A looping wave opens the page, then chapters walk patients through 3D scans, shade matching and a first visit, ending in a booking request.</p>
+        <ul><li>Looping video hero</li><li>3D scan walkthrough</li><li>Shade matching</li><li>FAQ and booking</li></ul>
+        <a class="btn solid visit" href="https://estarobi50.github.io/digitalculture-design-projects/northlight-dental/northlight-dental/" target="_blank" rel="noopener">Open H2O Dental
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+      <div class="browser">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Live site</span></div>
+        <div class="viewport" style="background-image:url('https://estarobi50.github.io/digitalculture-design-projects/northlight-dental/northlight-dental/img/cluster.jpg')">
+          <iframe data-src="https://estarobi50.github.io/digitalculture-design-projects/northlight-dental/northlight-dental/" title="Live preview of the H2O Dental website" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
+          <a class="hit" tabindex="-1" aria-hidden="true" href="https://estarobi50.github.io/digitalculture-design-projects/northlight-dental/northlight-dental/" target="_blank" rel="noopener"><b>Open live site</b></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case anchorage">
+      <div class="copy">
+        <h3>Anchorage Management</h3>
+        <p class="kind">Estate management</p>
+        <p class="sum">Care for homes, second homes and rentals: inspections, maintenance, vendor coordination and owner reporting, plus renovations, design consulting and seasonal décor.</p>
+        <ul><li>Services overview</li><li>Sample visit summary</li><li>Four-step process</li><li>Consultation form</li></ul>
+        <a class="btn solid visit" href="https://s3.us-east-1.amazonaws.com/anchoragemgmt.com-562824319788-us-east-1-an/index-ai.html#g-projects" target="_blank" rel="noopener">Open Anchorage Management
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+      <div class="browser">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Live site</span></div>
+        <div class="viewport" style="background-image:url('https://s3.us-east-1.amazonaws.com/anchoragemgmt.com-562824319788-us-east-1-an/assets/Photos/hero-sky.jpg')">
+          <iframe data-src="https://s3.us-east-1.amazonaws.com/anchoragemgmt.com-562824319788-us-east-1-an/index-ai.html" title="Live preview of the Anchorage Management website" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
+          <a class="hit" tabindex="-1" aria-hidden="true" href="https://s3.us-east-1.amazonaws.com/anchoragemgmt.com-562824319788-us-east-1-an/index-ai.html#g-projects" target="_blank" rel="noopener"><b>Open live site</b></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case haworth">
+      <div class="copy">
+        <h3>Haworth Dental</h3>
+        <p class="kind">Family dental practice, Haworth NJ</p>
+        <p class="sum">Pediatric, orthodontic, implant, cosmetic and sleep apnea care, a practice history dating to 1966, insurance and financing details, patient reviews and a visit request form.</p>
+        <ul><li>Service overview</li><li>Doctor profile</li><li>Insurance and financing</li><li>FAQ and booking</li></ul>
+        <a class="btn solid visit" href="https://estarobi50.github.io/digitalculture-design-projects/haworth/" target="_blank" rel="noopener">Open Haworth Dental
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
+      </div>
+      <div class="browser">
+        <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Live site</span></div>
+        <div class="viewport" style="background-image:url('https://estarobi50.github.io/digitalculture-design-projects/haworth/img/hero-procedure.jpg')">
+          <iframe data-src="https://estarobi50.github.io/digitalculture-design-projects/haworth/" title="Live preview of the Haworth Dental website" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
+          <a class="hit" tabindex="-1" aria-hidden="true" href="https://estarobi50.github.io/digitalculture-design-projects/haworth/" target="_blank" rel="noopener"><b>Open live site</b></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="process" id="process" aria-labelledby="process-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="process-h">How a project runs.</h2><p>Four steps, one person to talk to the whole way.</p></div>
+    <ol class="steps">
+      <li><h3>Talk</h3><p>A free 30-minute call about your business, your customers and what the site has to do.</p></li>
+      <li><h3>Design</h3><p>You see the look and the page layouts before anything is built.</p></li>
+      <li><h3>Build</h3><p>The site is built fast, works on phones, and is tested before you see it live.</p></li>
+      <li><h3>Launch and support</h3><p>We put it online, then keep it updated and running.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="why" id="why" aria-labelledby="why-h">
+  <div class="wrap grid">
+    <div class="sec-head" style="margin-bottom:0"><h2 id="why-h">Built by the people who run your IT.</h2><p>A website is part of your infrastructure. When the same team builds and supports it, nothing falls between two vendors.</p></div>
+    <dl>
+      <div class="row"><dt>Hosting and domains</dt><dd>Your site, domain and DNS set up and managed in one place.</dd></div>
+      <div class="row"><dt>Email and security</dt><dd>Business email and the basics that keep a small company's site and inbox safe.</dd></div>
+      <div class="row"><dt>Support after launch</dt><dd>When something breaks or needs changing, you call one number and get an answer.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="start" id="start" aria-labelledby="start-h">
+  <div class="wrap">
+    <h2 id="start-h">Tell us about your business.</h2>
+    <p>Start with a free 30-minute call. We will tell you what the site needs and what it will take.</p>
+    <div class="actions">
+      <a class="btn solid" href="tel:+15512364157">Call (551) 236-4157</a>
+      <a class="btn line" href="https://digitalcultureit.com/#contact">Send a message</a>
+    </div>
+    <p class="alt">Or email <a href="mailto:digitalcultureits@gmail.com">digitalcultureits@gmail.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>Digital Culture IT Solutions, Bergen County, NJ</span>
+  <span>Project listings, prices and addresses are sample content.</span>
+  <a href="/">Back to the main site</a>
+</footer>
+
+<button class="totop" id="totop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg>
+</button>
+
+<script>
+(() => {
+  const reel = document.getElementById('reel');
+  const cv = document.getElementById('fx');
+  const ctx = cv.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CY = '90,169,255';
+  let W = 0, H = 0, dpr = 1, t = 0, running = true;
+  const mouse = { x: -9999, y: -9999 };
+  let nodes = [], traces = [], meteors = [], waves = [];
+  const HEX = 46, HH = HEX * Math.sqrt(3);
+
+  function build() {
+    nodes = Array.from({ length: Math.round(Math.min(110, W * H / 14000)) }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: Math.random() * 1.6 + .8
+    }));
+    // circuit traces: horizontal runs with 45-degree jogs, each with a travelling pulse
+    traces = Array.from({ length: 9 }, (_, i) => {
+      let x = Math.random() < .5 ? -20 : W + 20, y = (i + .5) * H / 9 + (Math.random() - .5) * 30;
+      const dir = x < 0 ? 1 : -1, pts = [[x, y]];
+      while ((dir > 0 && x < W + 20) || (dir < 0 && x > -20)) {
+        x += dir * (80 + Math.random() * 160); pts.push([x, y]);
+        const j = (Math.random() < .5 ? -1 : 1) * (30 + Math.random() * 60);
+        x += dir * Math.abs(j); y += j; pts.push([x, y]);
+      }
+      let len = 0; const segs = [];
+      for (let k = 1; k < pts.length; k++) { const l = Math.hypot(pts[k][0] - pts[k-1][0], pts[k][1] - pts[k-1][1]); segs.push(l); len += l; }
+      return { pts, segs, len, p: Math.random(), speed: .0008 + Math.random() * .0012 };
+    });
+  }
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = reel.clientWidth; H = reel.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    build();
+    if (reduce) frame();
+  }
+  function at(tr, d) {
+    let acc = 0;
+    for (let k = 0; k < tr.segs.length; k++) {
+      if (acc + tr.segs[k] >= d) { const f = (d - acc) / tr.segs[k]; return [tr.pts[k][0] + (tr.pts[k+1][0] - tr.pts[k][0]) * f, tr.pts[k][1] + (tr.pts[k+1][1] - tr.pts[k][1]) * f]; }
+      acc += tr.segs[k];
+    }
+    return tr.pts[tr.pts.length - 1];
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    const cx = W / 2, cy = H * .52;
+
+    // hex grid, lit by expanding shockwaves
+    ctx.lineWidth = 1;
+    for (let row = -1; row * HH * .5 < H + HH; row++) {
+      for (let col = -1; col * HEX * 1.5 < W + HEX * 2; col++) {
+        const x = col * HEX * 1.5, y = row * HH + (col % 2 ? HH / 2 : 0);
+        let glow = 0;
+        for (const w of waves) { const d = Math.abs(Math.hypot(x - w.x, y - w.y) - w.r); if (d < 70) glow = Math.max(glow, (1 - d / 70) * w.a); }
+        const md = Math.hypot(x - mouse.x, y - mouse.y); if (md < 160) glow = Math.max(glow, (1 - md / 160) * .5);
+        ctx.strokeStyle = `rgba(${CY},${.045 + glow * .5})`;
+        ctx.beginPath();
+        for (let k = 0; k < 6; k++) { const an = Math.PI / 3 * k; const px = x + HEX * .98 * Math.cos(an), py = y + HEX * .98 * Math.sin(an); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+        ctx.closePath(); ctx.stroke();
+      }
+    }
+    waves = waves.filter(w => (w.r += 5, w.a *= .985, w.a > .05));
+
+    // radar sweep
+    const ang = t * .6, R = Math.hypot(W, H) * .6;
+    if (ctx.createConicGradient) {
+      const g = ctx.createConicGradient(ang - Math.PI / 2.2, cx, cy);
+      g.addColorStop(0, `rgba(${CY},0)`); g.addColorStop(.22, `rgba(${CY},.13)`); g.addColorStop(.2201, `rgba(${CY},0)`); g.addColorStop(1, `rgba(${CY},0)`);
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.strokeStyle = `rgba(${CY},.28)`; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(ang) * R, cy + Math.sin(ang) * R); ctx.stroke();
+    for (let r = 1; r <= 3; r++) { ctx.strokeStyle = `rgba(${CY},${.05 / r + .02})`; ctx.beginPath(); ctx.arc(cx, cy, Math.min(W, H) * .2 * r, 0, Math.PI * 2); ctx.stroke(); }
+
+    // circuit traces with data pulses
+    for (const tr of traces) {
+      ctx.strokeStyle = `rgba(${CY},.12)`; ctx.beginPath();
+      tr.pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+      tr.p = (tr.p + tr.speed) % 1;
+      const [px, py] = at(tr, tr.p * tr.len);
+      const g = ctx.createRadialGradient(px, py, 0, px, py, 14);
+      g.addColorStop(0, `rgba(${CY},.95)`); g.addColorStop(1, `rgba(${CY},0)`);
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // network nodes
+    for (const n of nodes) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1;
+      const dx = mouse.x - n.x, dy = mouse.y - n.y, d = Math.hypot(dx, dy);
+      if (d < 180 && d > 1) { n.x += dx / d * .5; n.y += dy / d * .5; }
+    }
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 130) { ctx.strokeStyle = `rgba(${CY},${(1 - d / 130) * .28})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      }
+      ctx.fillStyle = `rgba(${CY},.75)`; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // meteors
+    if (!reduce && Math.random() < .012) meteors.push({ x: Math.random() * W * 1.2, y: -20, vx: -6 - Math.random() * 5, vy: 5 + Math.random() * 4, life: 1 });
+    meteors = meteors.filter(m => {
+      m.x += m.vx; m.y += m.vy; m.life -= .012;
+      const g = ctx.createLinearGradient(m.x, m.y, m.x - m.vx * 9, m.y - m.vy * 9);
+      g.addColorStop(0, `rgba(255,255,255,${m.life})`); g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(m.x, m.y); ctx.lineTo(m.x - m.vx * 9, m.y - m.vy * 9); ctx.stroke(); ctx.lineWidth = 1;
+      return m.life > 0 && m.y < H + 40;
+    });
+  }
+
+  function loop() { if (!running) return; t += .016; frame(); requestAnimationFrame(loop); }
+  addEventListener('resize', resize);
+  resize();
+  if (!reduce) {
+    new IntersectionObserver(([e]) => { const was = running; running = e.isIntersecting; if (running && !was) loop(); }).observe(reel.parentElement);
+    loop();
+    // a first shockwave as the bars open, then one every few seconds
+    setTimeout(() => waves.push({ x: W / 2, y: H * .52, r: 0, a: 1 }), 900);
+    setInterval(() => { if (running) waves.push({ x: Math.random() * W, y: Math.random() * H, r: 0, a: .8 }); }, 4500);
+    const hero = reel.parentElement;
+    /* cursor light removed */
+    hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
+    hero.addEventListener('pointerdown', e => { const r = hero.getBoundingClientRect(); waves.push({ x: e.clientX - r.left, y: e.clientY - r.top, r: 0, a: 1 }); });
+  }
+
+  // in-page links scroll without adding history entries, so Back returns to the main site
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = id === 'top' ? document.body : document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', location.pathname + location.search);
+  }));
+
+
+  // opening: bars and curtain lift
+  const start = () => setTimeout(() => document.body.classList.add('go'), 350);
+  document.readyState === 'complete' ? start() : addEventListener('load', start);
+  setTimeout(() => document.body.classList.add('go'), 3000);
+
+  // in-page links scroll without adding history entries, so Back returns to the main site
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = id === 'top' ? document.body : document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    history.replaceState(null, '', location.pathname + location.search);
+  }));
+
+  // nav gains a backing once you leave the hero; hero reel drifts on scroll
+  const nav = document.getElementById('nav');
+  const totop = document.getElementById('totop');
+  totop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+  let ticking = false;
+  const onScroll = () => {
+    const y = scrollY;
+    nav.classList.toggle('solid', y > innerHeight * .6);
+    totop.classList.toggle('show', y > innerHeight * .8);
+    if (!reduce && y < innerHeight * 1.2) reel.style.transform = `translate3d(0,${y * .25}px,0)`;
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  // live previews: scale a desktop-width page into each frame, load it when it nears the screen
+  const saveData = navigator.connection && navigator.connection.saveData;
+  const fit = vp => {
+    const f = vp.querySelector('iframe'), SRC_W = innerWidth < 640 ? 900 : 1440, s = vp.clientWidth / SRC_W;
+    f.style.width = SRC_W + 'px'; f.style.height = (vp.clientHeight / s) + 'px'; f.style.transform = `scale(${s})`;
+  };
+  const vps = [...document.querySelectorAll('.viewport')];
+  vps.forEach(fit);
+  const ro = new ResizeObserver(es => es.forEach(e => fit(e.target)));
+  vps.forEach(v => ro.observe(v));
+  addEventListener('resize', () => vps.forEach(fit));
+  if (!saveData) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      const f = e.target.querySelector('iframe');
+      f.addEventListener('load', () => f.classList.add('ready'), { once: true });
+      f.src = f.dataset.src;
+    }), { rootMargin: '300px 0px' });
+    vps.forEach(v => io.observe(v));
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Security Tools | Digital Culture IT Solutions</title>
+    <meta name="description" content="Vetted, free-tier security tools used by IT professionals. Scan files, check SSL, analyze email, audit AWS — all from your browser.">
+    <link rel="canonical" href="https://digitalcultureit.com/security-tools.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Digital Culture IT Solutions">
+    <meta property="og:title" content="Free Security Tools | Digital Culture IT Solutions">
+    <meta property="og:description" content="Vetted, free-tier security tools used by IT professionals. Scan files, check SSL, analyze email, audit AWS — all from your browser.">
+    <meta property="og:url" content="https://digitalcultureit.com/security-tools.html">
+    <meta property="og:image" content="https://digitalcultureit.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Security Tools | Digital Culture IT Solutions">
+    <meta name="twitter:description" content="Vetted, free-tier security tools used by IT professionals — file scans, SSL, email, AWS, and more.">
+    <meta name="twitter:image" content="https://digitalcultureit.com/og-image.png">
+
+    <!-- JSON-LD: ProfessionalService + CollectionPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Digital Culture IT Solutions",
+      "description": "Infrastructure and cloud consulting — AWS, VMware, Windows infrastructure, and automation.",
+      "url": "https://digitalcultureit.com",
+      "sameAs": ["https://github.com/estarobi50"],
+      "areaServed": "US",
+      "serviceType": ["Cloud Infrastructure Consulting", "AWS Architecture", "VMware Deployment", "IT Security"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Free Security Tools",
+      "description": "Curated list of vetted, free-tier security tools for IT professionals.",
+      "url": "https://digitalcultureit.com/security-tools.html",
+      "isPartOf": { "@type": "WebSite", "name": "Digital Culture IT Solutions", "url": "https://digitalcultureit.com" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-blue: #00d9ff;
+            --deep-black: #080f1e;
+            --dark-grey: #0f1f35;
+            --mid-grey: #162840;
+            --light-grey: #aaa;
+            --white: #f0faff;
+            --gradient-glow: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; max-width: 100%; }
+        *, *::before, *::after { min-width: 0; }
+        img, svg, canvas, video, iframe { max-width: 100%; }
+        h1, h2, h3, h4, p, a, li, span { overflow-wrap: anywhere; word-break: break-word; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #050d18;
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Skip link — appears on keyboard focus */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--cyber-blue);
+            color: #000;
+            padding: 0.6rem 1rem;
+            z-index: 9999;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .skip-link:focus { left: 0; top: 0; }
+
+        /* Respect users who prefer no motion */
+        @media (prefers-reduced-motion: reduce) {
+            #bg-canvas { display: none; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 2rem 0;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 900;
+            color: var(--cyber-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-shadow: 0 0 8px rgba(0,217,255,0.9), 0 0 20px rgba(0,217,255,0.45), 0 0 40px rgba(0,217,255,0.15);
+            line-height: 1;
+        }
+
+        .tagline {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-top: 0.3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--cyber-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active { color: var(--cyber-blue); }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 5rem 0 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,217,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d9ff 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--light-grey);
+            max-width: 680px;
+            margin: 0 auto;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── SECTION ── */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--cyber-blue);
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100px; height: 3px;
+            background: var(--gradient-glow);
+        }
+
+        /* ── SECURITY TOOLS ── */
+        .security-tools {
+            padding: 3rem 0 6rem;
+            position: relative;
+        }
+
+        .tools-category {
+            margin-bottom: 3rem;
+        }
+
+        .tools-category-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cyber-blue);
+            opacity: 0.75;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .tools-category-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 217, 255, 0.15);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+            gap: 1rem;
+        }
+
+        .tool-card {
+            background: rgba(10, 10, 10, 0.55);
+            border: 1px solid rgba(0, 217, 255, 0.12);
+            border-radius: 3px;
+            padding: 1.4rem 1.6rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--gradient-glow);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            border-color: rgba(0, 217, 255, 0.4);
+            background: rgba(0, 217, 255, 0.04);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.12);
+        }
+
+        .tool-card:hover::before { transform: scaleX(1); }
+
+        .tool-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .tool-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .tool-arrow {
+            color: var(--cyber-blue);
+            font-size: 0.75rem;
+            opacity: 0.5;
+            transition: opacity 0.2s, transform 0.2s;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tool-card:hover .tool-arrow {
+            opacity: 1;
+            transform: translate(2px, -2px);
+        }
+
+        .tool-desc {
+            color: var(--light-grey);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(0, 255, 150, 0.75);
+            background: rgba(0, 255, 150, 0.07);
+            border: 1px solid rgba(0, 255, 150, 0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 2px;
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .tool-badge.warn {
+            color: rgba(255, 200, 80, 0.8);
+            background: rgba(255, 200, 80, 0.07);
+            border-color: rgba(255, 200, 80, 0.2);
+        }
+
+        /* ── BACK BANNER ── */
+        .back-banner {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 217, 255, 0.15);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cyber-blue);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: opacity 0.2s, gap 0.2s;
+            opacity: 0.7;
+        }
+
+        .back-link:hover { opacity: 1; gap: 0.8rem; }
+
+        /* ── DISCLAIMER ── */
+        .security-disclaimer {
+            text-align: center;
+            color: var(--light-grey);
+            font-size: 0.82rem;
+            opacity: 0.4;
+            margin-top: 2.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--cyber-blue);
+            text-shadow: 0 0 10px rgba(0,217,255,0.7), 0 0 30px rgba(0,217,255,0.3);
+            margin-bottom: 0.75rem;
+        }
+
+        footer p {
+            color: var(--light-grey);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* ── HIPAA BADGE ── */
+        .compliance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hipaa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid rgba(0, 217, 255, 0.45);
+            border-radius: 6px;
+            padding: 0.55rem 1.1rem;
+            background: rgba(0, 217, 255, 0.05);
+            box-shadow: 0 0 12px rgba(0,217,255,0.12), inset 0 0 12px rgba(0,217,255,0.03);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .hipaa-badge:hover {
+            border-color: rgba(0, 217, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0,217,255,0.25), inset 0 0 16px rgba(0,217,255,0.06);
+        }
+
+        .hipaa-badge-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .hipaa-badge-text {
+            text-align: left;
+        }
+
+        .hipaa-badge-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--cyber-blue);
+            text-transform: uppercase;
+            display: block;
+            text-shadow: 0 0 8px rgba(0,217,255,0.6);
+        }
+
+        .hipaa-badge-sub {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--light-grey);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            opacity: 0.7;
+        }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px; height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--cyber-blue);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* ── FADE-IN ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.15s; }
+        .fade-in:nth-child(4) { animation-delay: 0.2s; }
+        .fade-in:nth-child(5) { animation-delay: 0.25s; }
+        .fade-in:nth-child(6) { animation-delay: 0.3s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            nav ul { gap: 1.2rem; }
+            .logo { font-size: 1.25rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+
+            #main-nav {
+                display: none;
+                position: absolute;
+                top: 100%; left: 0;
+                width: 100%;
+                background: rgba(5,13,24,0.97);
+                border-top: 1px solid rgba(0,217,255,0.2);
+                border-bottom: 1px solid rgba(0,217,255,0.2);
+                z-index: 100;
+                padding: 1rem 0;
+            }
+
+            #main-nav.open { display: block; }
+
+            #main-nav ul {
+                flex-direction: column;
+                gap: 0;
+                align-items: stretch;
+            }
+
+            #main-nav ul li a {
+                display: block;
+                padding: 0.85rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .page-hero h1 { font-size: 1.9rem; }
+            .section-title { font-size: 1.6rem; }
+            .container { padding: 0 1.25rem; }
+            header { padding: 1.25rem 0; }
+            .logo { font-size: 1.1rem; }
+            .tagline { font-size: 0.62rem; letter-spacing: 3px; }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 1.5rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="index.html" class="logo" style="display:block;">DIGITAL CULTURE</a>
+                    <div class="tagline">IT SOLUTIONS</div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="https://www.teamviewer.com/en-us/download/portal/windows/" target="_blank" rel="noopener noreferrer">Remote Support</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="security-tools.html" class="active">Security Tools</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="container">
+            <h1>FREE SECURITY TOOLS</h1>
+            <p>Vetted, free-tier tools used by security and infrastructure professionals. No installs required — run them from your browser.</p>
+        </div>
+    </div>
+
+    <!-- TOOLS SECTION -->
+    <section class="security-tools" id="main-content">
+        <div class="container">
+
+            <!-- MALWARE & FILE ANALYSIS -->
+            <div class="tools-category">
+                <div class="tools-category-label">Malware &amp; File Analysis</div>
+                <div class="tools-grid">
+
+                    <a class="tool-card fade-in" href="https://www.virustotal.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">VirusTotal</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Scan files, URLs, IPs, and domains against 70+ antivirus engines simultaneously. The go-to first check for anything suspicious.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://www.hybrid-analysis.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Hybrid Analysis</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Free malware sandbox by CrowdStrike. Submit a file and watch it execute in an isolated environment with full behavioral analysis.</p>
+                        <span class="tool-badge">Free · Account Optional</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://any.run" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">ANY.RUN</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Interactive online sandbox — watch malware run in real time, click through installers, and see network traffic live. Free tier available.</p>
+                        <span class="tool-badge">Free Tier</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- WEBSITE & SSL -->
+            <div class="tools-category">
+                <div class="tools-category-label">Website &amp; SSL Security</div>
+                <div class="tools-grid">
+
+                    <a class="tool-card fade-in" href="https://sitecheck.sucuri.net" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Sucuri SiteCheck</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Scan any website for malware, blacklisting status, and injected scripts. Useful first step when a client site is flagged by browsers.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">SSL Labs Server Test</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Deep analysis of SSL/TLS configuration — cipher suites, certificate chain, protocol support, and an A–F grade. Standard for compliance audits.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://securityheaders.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Security Headers</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Checks HTTP response headers for CSP, HSTS, X-Frame-Options, and more. Instant letter grade with remediation guidance.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://observatory.mozilla.org" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Mozilla Observatory</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Mozilla's web security scanner — evaluates TLS, HTTP headers, cookies, and redirects. Scores against real-world best practices.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- EMAIL & DOMAIN -->
+            <div class="tools-category">
+                <div class="tools-category-label">Email &amp; Domain</div>
+                <div class="tools-grid">
+
+                    <a class="tool-card fade-in" href="https://mxtoolbox.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">MXToolbox</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">DNS lookup, MX records, SPF/DKIM/DMARC checks, blacklist monitoring, and SMTP diagnostics. Every sysadmin's email troubleshooting starting point.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://haveibeenpwned.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Have I Been Pwned</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Check if an email address appears in known data breaches. Troy Hunt's authoritative breach database — also covers password exposure via the Pwned Passwords API.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://dmarcian.com/dmarc-inspector/" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">DMARC Inspector</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Validate and visualize a domain's DMARC record. Shows policy, alignment mode, and reporting addresses — critical for preventing email spoofing.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- NETWORK & INFRASTRUCTURE -->
+            <div class="tools-category">
+                <div class="tools-category-label">Network &amp; Infrastructure</div>
+                <div class="tools-grid">
+
+                    <a class="tool-card fade-in" href="https://www.shodan.io" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Shodan</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Search engine for internet-connected devices. Look up what ports and services your public IPs expose before an attacker does. Free tier available.</p>
+                        <span class="tool-badge warn">Free Tier · Account Required</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://dnschecker.org" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">DNS Checker</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Verify DNS propagation across 100+ global resolvers simultaneously. Essential after any DNS change — migration, failover, or new record deployment.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://www.whois.com/whois/" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">WHOIS Lookup</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Registrar, registration dates, name servers, and registrant info for any domain. First step in any domain-related investigation or ownership dispute.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://www.ipvoid.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">IPVoid</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Check an IP address against multiple blacklists and threat intelligence feeds. Useful when investigating suspicious traffic sources or sender reputation issues.</p>
+                        <span class="tool-badge">Free · No Account</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- AWS & CLOUD -->
+            <div class="tools-category">
+                <div class="tools-category-label">AWS &amp; Cloud Security</div>
+                <div class="tools-grid">
+
+                    <a class="tool-card fade-in" href="https://github.com/toniblyx/prowler" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">Prowler</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Open-source AWS security assessment CLI. Runs 300+ checks against CIS, NIST, SOC2, and PCI-DSS frameworks. Free, runs inside your own AWS account.</p>
+                        <span class="tool-badge">Free · Open Source</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://policysim.aws.amazon.com" target="_blank" rel="noopener">
+                        <div class="tool-card-header">
+                            <span class="tool-name">AWS IAM Policy Simulator</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Test IAM policies before applying them. Simulate API calls against specific resources to verify allow/deny behavior — built into AWS at no cost.</p>
+                        <span class="tool-badge">Free · AWS Account Required</span>
+                    </a>
+
+                    <a class="tool-card fade-in" href="https://github.com/nccgroup/ScoutSuite" target="_blank" rel="noopener noreferrer">
+                        <div class="tool-card-header">
+                            <span class="tool-name">ScoutSuite</span>
+                            <span class="tool-arrow">↗</span>
+                        </div>
+                        <p class="tool-desc">Open-source multi-cloud security auditing tool by NCC Group. Reviews AWS, Azure, GCP, and OCI configurations against best practices and produces an HTML report.</p>
+                        <span class="tool-badge">Free · Open Source</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <p class="security-disclaimer">All tools listed are third-party services. Digital Culture IT Solutions is not affiliated with any of these providers. Always review a tool's privacy policy before submitting sensitive data.</p>
+
+        </div>
+    </section>
+
+    <!-- BACK LINK -->
+    <div class="back-banner">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Digital Culture IT Solutions</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">DIGITAL CULTURE</div>
+            <p>IT Solutions &nbsp;·&nbsp; Infrastructure &amp; Cloud Consulting</p>
+
+            <div class="compliance-badges">
+                <!-- HIPAA Compliance Badge -->
+                <span class="hipaa-badge">
+                    <svg class="hipaa-badge-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Shield shape -->
+                        <path d="M32 4L8 14V32C8 45.5 18.5 57.5 32 61C45.5 57.5 56 45.5 56 32V14L32 4Z"
+                              fill="rgba(0,217,255,0.08)"
+                              stroke="#00d9ff"
+                              stroke-width="1.5"
+                              stroke-linejoin="round"/>
+                        <!-- Inner shield glow line -->
+                        <path d="M32 10L13 18.5V32C13 43 21.5 53 32 56.5C42.5 53 51 43 51 32V18.5L32 10Z"
+                              fill="none"
+                              stroke="rgba(0,217,255,0.25)"
+                              stroke-width="0.75"
+                              stroke-linejoin="round"/>
+                        <!-- Medical cross -->
+                        <rect x="27.5" y="20" width="9" height="24" rx="1.5" fill="#00d9ff" opacity="0.9"/>
+                        <rect x="20" y="27.5" width="24" height="9" rx="1.5" fill="#00d9ff" opacity="0.9"/>
+                        <!-- Corner glint dots -->
+                        <circle cx="32" cy="14" r="1.2" fill="#00d9ff" opacity="0.6"/>
+                        <circle cx="17" cy="20" r="0.8" fill="#00d9ff" opacity="0.4"/>
+                        <circle cx="47" cy="20" r="0.8" fill="#00d9ff" opacity="0.4"/>
+                    </svg>
+                    <span class="hipaa-badge-text">
+                        <span class="hipaa-badge-label">HIPAA Compliant</span>
+                        <span class="hipaa-badge-sub">Health Data Security</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CANVAS BACKGROUND -->
+    <script>
+    (function(){
+        var canvas = document.getElementById('bg-canvas');
+        var ctx = canvas.getContext('2d');
+        var W, H, nodes = [], packets = [];
+        var mx = -9999, my = -9999;
+        var NODE_COUNT = 55, EDGE_DIST = 180, MOUSE_RADIUS = 120, MOUSE_FORCE = 0.6;
+
+        function resize(){
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+
+        function randNode(){
+            return {
+                x: Math.random()*W, y: Math.random()*H,
+                vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
+                r: Math.random()*2+1.5,
+                pulse: Math.random()*Math.PI*2,
+                pulseSpd: 0.02+Math.random()*0.02
+            };
+        }
+
+        function init(){
+            nodes = [];
+            for(var i=0;i<NODE_COUNT;i++) nodes.push(randNode());
+        }
+
+        function drawGrid(){
+            var sz = 60;
+            ctx.strokeStyle = 'rgba(0,217,255,0.025)';
+            ctx.lineWidth = 1;
+            for(var x=0;x<W;x+=sz){
+                ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke();
+            }
+            for(var y=0;y<H;y+=sz){
+                ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+            }
+        }
+
+        function drawEdge(i,j,d){
+            var a = (1 - d/EDGE_DIST)*0.18;
+            ctx.strokeStyle = 'rgba(0,217,255,'+a+')';
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+        }
+
+        function drawNode(n){
+            var glow = 0.55 + 0.2*Math.sin(n.pulse);
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(0,217,255,'+glow+')';
+            ctx.shadowColor = '#00d9ff';
+            ctx.shadowBlur = 6;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+
+        function spawnPacket(a,b){
+            packets.push({ ax:nodes[a].x, ay:nodes[a].y, bx:nodes[b].x, by:nodes[b].y, t:0, spd:0.012+Math.random()*0.01 });
+        }
+
+        function drawPacket(p){
+            var x = p.ax + (p.bx-p.ax)*p.t;
+            var y = p.ay + (p.by-p.ay)*p.t;
+            ctx.beginPath(); ctx.arc(x,y,2.5,0,Math.PI*2);
+            ctx.fillStyle='rgba(0,217,255,0.9)';
+            ctx.shadowColor='#00d9ff'; ctx.shadowBlur=8;
+            ctx.fill(); ctx.shadowBlur=0;
+        }
+
+        function tick(){
+            requestAnimationFrame(tick);
+            ctx.clearRect(0,0,W,H);
+            ctx.fillStyle='rgba(5,13,24,0.68)';
+            ctx.fillRect(0,0,W,H);
+            drawGrid();
+            for(var i=0;i<nodes.length;i++){
+                var n=nodes[i]; n.pulse+=n.pulseSpd;
+                var mdx=n.x-mx, mdy=n.y-my, md=Math.sqrt(mdx*mdx+mdy*mdy);
+                if(md<MOUSE_RADIUS){ var f=(1-md/MOUSE_RADIUS)*MOUSE_FORCE; n.vx+=(mdx/md)*f; n.vy+=(mdy/md)*f; }
+                n.vx*=0.97; n.vy*=0.97; n.x+=n.vx; n.y+=n.vy;
+                if(n.x<-20) n.x=W+20; if(n.x>W+20) n.x=-20;
+                if(n.y<-20) n.y=H+20; if(n.y>H+20) n.y=-20;
+            }
+            for(var i=0;i<nodes.length;i++){
+                for(var j=i+1;j<nodes.length;j++){
+                    var dx=nodes[j].x-nodes[i].x, dy=nodes[j].y-nodes[i].y, d=Math.sqrt(dx*dx+dy*dy);
+                    if(d<EDGE_DIST){ drawEdge(i,j,d); if(Math.random()<0.00005) spawnPacket(i,j); }
+                }
+            }
+            for(var i=0;i<nodes.length;i++) drawNode(nodes[i]);
+            for(var i=packets.length-1;i>=0;i--){
+                var p=packets[i]; p.t+=p.spd;
+                if(p.t>=1){ packets.splice(i,1); continue; }
+                drawPacket(p);
+            }
+        }
+
+        window.addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY; });
+        window.addEventListener('resize',function(){ resize(); init(); });
+        resize(); init(); tick();
+    })();
+    </script>
+
+    <!-- HAMBURGER -->
+    <script>
+    (function(){
+        var btn = document.getElementById('hamburger');
+        var nav = document.getElementById('main-nav');
+        if(!btn||!nav) return;
+        btn.addEventListener('click',function(){
+            var open = nav.classList.toggle('open');
+            btn.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open);
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click',function(){
+                nav.classList.remove('open');
+                btn.classList.remove('open');
+                btn.setAttribute('aria-expanded', false);
+            });
+        });
+    })();
+    </script>
+
+</body>
+</html>

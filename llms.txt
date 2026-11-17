@@ -1,0 +1,28 @@
+# Digital Culture IT Solutions
+
+> Digital Culture IT Solutions is an independent IT consulting and managed support firm in Bergen County, New Jersey, serving small and medium-sized businesses across North New Jersey and the NYC metro area. Founder-led; specialties are cloud (AWS), infrastructure, storage, migrations, security and day-to-day IT support.
+
+Service area: Bergen, Passaic, Essex, Hudson and Morris counties, NJ (remote support available beyond that).
+Contact: (551) 236-4157 | digitalcultureits@gmail.com
+
+## Key pages
+
+- [Home](https://digitalcultureit.com/): Services, pricing tiers (Starter, Business, Business Pro, Pay-As-You-Go), service area, FAQ and contact form
+- [Web Portfolio](https://digitalcultureit.com/portfolio.html): Web design and development work for local businesses
+- [Projects](https://digitalcultureit.com/projects.html): Open-source and infrastructure/automation projects
+- [Security Tools](https://digitalcultureit.com/security-tools.html): Security and hardening tools and write-ups
+
+## Services
+
+- Infrastructure Solutions
+- Cloud Services (AWS)
+- Migration Services
+- Storage Solutions
+- IT Support (remote and onsite)
+- Office Support
+- AI Solutions
+- Web Development and Design
+
+## Optional
+
+- [Sitemap](https://digitalcultureit.com/sitemap.xml)

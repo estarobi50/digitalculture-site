@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Digital Culture IT Solutions</title>
+    <meta name="description" content="Real-world AWS and cloud infrastructure builds — each one designed to solve a specific business problem. Documented, repeatable, production-ready.">
+    <link rel="canonical" href="https://digitalcultureit.com/projects.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Digital Culture IT Solutions">
+    <meta property="og:title" content="Projects | Digital Culture IT Solutions">
+    <meta property="og:description" content="Real-world AWS and cloud infrastructure builds — each one designed to solve a specific business problem. Documented, repeatable, production-ready.">
+    <meta property="og:url" content="https://digitalcultureit.com/projects.html">
+    <meta property="og:image" content="https://digitalcultureit.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects | Digital Culture IT Solutions">
+    <meta name="twitter:description" content="Real-world AWS and cloud infrastructure builds — production-ready, documented, repeatable.">
+    <meta name="twitter:image" content="https://digitalcultureit.com/og-image.png">
+
+    <!-- JSON-LD: ProfessionalService + ItemList of projects -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Digital Culture IT Solutions",
+      "description": "Infrastructure and cloud consulting — AWS, VMware, Windows infrastructure, and automation.",
+      "url": "https://digitalcultureit.com",
+      "sameAs": ["https://github.com/estarobi50"],
+      "areaServed": "US",
+      "serviceType": ["Cloud Infrastructure Consulting", "AWS Architecture", "VMware Deployment", "IT Security"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyber-blue: #00d9ff;
+            --deep-black: #080f1e;
+            --dark-grey: #0f1f35;
+            --mid-grey: #162840;
+            --light-grey: #aaa;
+            --white: #f0faff;
+            --gradient-glow: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; max-width: 100%; }
+        *, *::before, *::after { min-width: 0; }
+        img, svg, canvas, video, iframe { max-width: 100%; }
+        h1, h2, h3, h4, p, a, li, span { overflow-wrap: anywhere; word-break: break-word; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #050d18;
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Skip link — appears on keyboard focus */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--cyber-blue);
+            color: #000;
+            padding: 0.6rem 1rem;
+            z-index: 9999;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+        .skip-link:focus { left: 0; top: 0; }
+
+        /* Respect users who prefer no motion */
+        @media (prefers-reduced-motion: reduce) {
+            #bg-canvas { display: none; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 2rem 0;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 900;
+            color: var(--cyber-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-shadow: 0 0 8px rgba(0,217,255,0.9), 0 0 20px rgba(0,217,255,0.45), 0 0 40px rgba(0,217,255,0.15);
+            line-height: 1;
+            display: block;
+        }
+
+        .tagline {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.78rem;
+            color: #ffffff;
+            margin-top: 0.3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        nav ul { list-style: none; display: flex; gap: 3rem; }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--cyber-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active { color: var(--cyber-blue); }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 5rem 0 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,217,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d9ff 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            max-width: 680px;
+            margin: 0 auto 1.5rem;
+            letter-spacing: 0.4px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cyber-blue);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(0,217,255,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .github-link:hover {
+            background: rgba(0,217,255,0.08);
+            border-color: rgba(0,217,255,0.6);
+        }
+
+        /* ── STATUS BAR ── */
+        #status-bar {
+            text-align: center;
+            padding: 1rem 0 0;
+            font-size: 0.82rem;
+            color: var(--light-grey);
+            opacity: 0.6;
+            letter-spacing: 0.5px;
+            min-height: 2rem;
+        }
+
+        /* ── PROJECTS GRID ── */
+        .projects-section {
+            padding: 2.5rem 0 6rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+            gap: 2rem;
+        }
+
+        /* ── PROJECT CARD ── */
+        .project-card {
+            background: rgba(10, 10, 10, 0.55);
+            border: 1px solid rgba(0, 217, 255, 0.12);
+            border-radius: 3px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--gradient-glow);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 217, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.12);
+        }
+
+        .project-card:hover::before { transform: scaleX(1); }
+
+        .project-tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyber-blue);
+            border: 1px solid rgba(0, 217, 255, 0.35);
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            width: fit-content;
+        }
+
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.8px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .project-problem {
+            border-left: 2px solid rgba(255, 80, 80, 0.5);
+            padding-left: 0.9rem;
+        }
+
+        .project-solution {
+            border-left: 2px solid rgba(0, 217, 255, 0.4);
+            padding-left: 0.9rem;
+        }
+
+        .project-problem h4,
+        .project-solution h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .project-problem h4 { color: rgba(255, 120, 120, 0.9); }
+        .project-solution h4 { color: var(--cyber-blue); }
+
+        .project-problem p,
+        .project-solution p {
+            color: var(--light-grey);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .project-github-link {
+            font-size: 0.78rem;
+            color: var(--cyber-blue);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-github-link:hover { opacity: 1; }
+
+        .project-tech {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .tech-pill {
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            color: rgba(0, 217, 255, 0.7);
+            background: rgba(0, 217, 255, 0.07);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 0.15rem 0.5rem;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ── SKELETON LOADER ── */
+        .skeleton-card {
+            background: rgba(10,10,10,0.55);
+            border: 1px solid rgba(0,217,255,0.07);
+            border-radius: 3px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0%,100% { opacity: 0.4; }
+            50%      { opacity: 0.7; }
+        }
+
+        .skel-line {
+            background: rgba(0,217,255,0.1);
+            border-radius: 2px;
+            height: 12px;
+        }
+
+        .skel-line.short { width: 40%; }
+        .skel-line.med   { width: 70%; }
+        .skel-line.full  { width: 100%; }
+        .skel-line.title { height: 16px; width: 80%; }
+
+        /* ── ERROR STATE ── */
+        .error-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--light-grey);
+        }
+
+        .error-state h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,120,120,0.8);
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .error-state p { font-size: 0.95rem; opacity: 0.7; }
+
+        /* ── FOOTER / BACK ── */
+        .back-banner {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 217, 255, 0.15);
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cyber-blue);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            transition: opacity 0.2s, gap 0.2s;
+        }
+
+        .back-link:hover { opacity: 1; gap: 0.8rem; }
+
+        footer {
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--cyber-blue);
+            text-shadow: 0 0 10px rgba(0,217,255,0.7), 0 0 30px rgba(0,217,255,0.3);
+            margin-bottom: 0.75rem;
+        }
+
+        footer p { color: var(--light-grey); font-size: 0.9rem; opacity: 0.6; }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px; height: 20px;
+            background: none; border: none;
+            cursor: pointer; padding: 0; z-index: 200;
+        }
+
+        .hamburger span {
+            display: block; height: 2px; width: 100%;
+            background: var(--cyber-blue); border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) { nav ul { gap: 1.2rem; } .logo { font-size: 1.25rem; } }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            #main-nav {
+                display: none; position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: rgba(5,13,24,0.97);
+                border-top: 1px solid rgba(0,217,255,0.2);
+                border-bottom: 1px solid rgba(0,217,255,0.2);
+                z-index: 100; padding: 1rem 0;
+            }
+            #main-nav.open { display: block; }
+            #main-nav ul { flex-direction: column; gap: 0; align-items: stretch; }
+            #main-nav ul li a { display: block; padding: 0.85rem 2rem; font-size: 1.1rem; }
+            .page-hero h1 { font-size: 1.9rem; }
+            .container { padding: 0 1.25rem; }
+            header { padding: 1.25rem 0; }
+            .logo { font-size: 1.1rem; }
+            .tagline { font-size: 0.62rem; letter-spacing: 3px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) { .page-hero h1 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="index.html" class="logo">DIGITAL CULTURE</a>
+                    <div class="tagline">IT SOLUTIONS</div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="https://www.teamviewer.com/en-us/download/portal/windows/" target="_blank" rel="noopener noreferrer">Remote Support</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="security-tools.html">Security Tools</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="container">
+            <h1>PROJECTS</h1>
+            <p>Real-world AWS and cloud infrastructure builds — each one designed to solve a specific business problem. Documented, repeatable, production-ready.</p>
+            <a class="github-link" href="https://github.com/estarobi50" target="_blank" rel="noopener">
+                ↗ &nbsp;github.com/estarobi50
+            </a>
+        </div>
+    </div>
+
+    <div id="status-bar"><div class="container">Loading projects from GitHub...</div></div>
+
+    <section class="projects-section" id="main-content">
+        <div class="container">
+            <div id="projects-grid" class="projects-grid">
+                <!-- Skeleton placeholders -->
+                <div class="skeleton-card">
+                    <div class="skel-line short"></div>
+                    <div class="skel-line title"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skel-line short"></div>
+                    <div class="skel-line title"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skel-line short"></div>
+                    <div class="skel-line title"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                    <div class="skel-line full"></div>
+                    <div class="skel-line med"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-banner">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Digital Culture IT Solutions</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">DIGITAL CULTURE</div>
+            <p>IT Solutions &nbsp;·&nbsp; Infrastructure &amp; Cloud Consulting</p>
+        </div>
+    </footer>
+
+    <!-- CANVAS BACKGROUND -->
+    <script>
+    (function(){
+        var canvas = document.getElementById('bg-canvas');
+        var ctx = canvas.getContext('2d');
+        var W, H, nodes = [], packets = [];
+        var mx = -9999, my = -9999;
+        var NODE_COUNT = 55, EDGE_DIST = 180, MOUSE_RADIUS = 120, MOUSE_FORCE = 0.6;
+
+        function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+
+        function randNode(){
+            return { x: Math.random()*W, y: Math.random()*H,
+                vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
+                r: Math.random()*2+1.5, pulse: Math.random()*Math.PI*2, pulseSpd: 0.02+Math.random()*0.02 };
+        }
+
+        function init(){ nodes=[]; for(var i=0;i<NODE_COUNT;i++) nodes.push(randNode()); }
+
+        function drawGrid(){
+            ctx.strokeStyle='rgba(0,217,255,0.025)'; ctx.lineWidth=1;
+            for(var x=0;x<W;x+=60){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+            for(var y=0;y<H;y+=60){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+        }
+
+        function drawEdge(i,j,d){
+            ctx.strokeStyle='rgba(0,217,255,'+(1-d/EDGE_DIST)*0.18+')'; ctx.lineWidth=0.8;
+            ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke();
+        }
+
+        function drawNode(n){
+            var g=0.55+0.2*Math.sin(n.pulse);
+            ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+            ctx.fillStyle='rgba(0,217,255,'+g+')'; ctx.shadowColor='#00d9ff'; ctx.shadowBlur=6; ctx.fill(); ctx.shadowBlur=0;
+        }
+
+        function spawnPacket(a,b){ packets.push({ax:nodes[a].x,ay:nodes[a].y,bx:nodes[b].x,by:nodes[b].y,t:0,spd:0.012+Math.random()*0.01}); }
+
+        function drawPacket(p){
+            var x=p.ax+(p.bx-p.ax)*p.t, y=p.ay+(p.by-p.ay)*p.t;
+            ctx.beginPath(); ctx.arc(x,y,2.5,0,Math.PI*2);
+            ctx.fillStyle='rgba(0,217,255,0.9)'; ctx.shadowColor='#00d9ff'; ctx.shadowBlur=8; ctx.fill(); ctx.shadowBlur=0;
+        }
+
+        function tick(){
+            requestAnimationFrame(tick);
+            ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(5,13,24,0.68)'; ctx.fillRect(0,0,W,H);
+            drawGrid();
+            for(var i=0;i<nodes.length;i++){
+                var n=nodes[i]; n.pulse+=n.pulseSpd;
+                var mdx=n.x-mx,mdy=n.y-my,md=Math.sqrt(mdx*mdx+mdy*mdy);
+                if(md<MOUSE_RADIUS){var f=(1-md/MOUSE_RADIUS)*MOUSE_FORCE; n.vx+=(mdx/md)*f; n.vy+=(mdy/md)*f;}
+                n.vx*=0.97; n.vy*=0.97; n.x+=n.vx; n.y+=n.vy;
+                if(n.x<-20) n.x=W+20; if(n.x>W+20) n.x=-20; if(n.y<-20) n.y=H+20; if(n.y>H+20) n.y=-20;
+            }
+            for(var i=0;i<nodes.length;i++){
+                for(var j=i+1;j<nodes.length;j++){
+                    var dx=nodes[j].x-nodes[i].x,dy=nodes[j].y-nodes[i].y,d=Math.sqrt(dx*dx+dy*dy);
+                    if(d<EDGE_DIST){ drawEdge(i,j,d); if(Math.random()<0.00005) spawnPacket(i,j); }
+                }
+            }
+            for(var i=0;i<nodes.length;i++) drawNode(nodes[i]);
+            for(var i=packets.length-1;i>=0;i--){
+                var p=packets[i]; p.t+=p.spd; if(p.t>=1){packets.splice(i,1);continue;} drawPacket(p);
+            }
+        }
+
+        window.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+        window.addEventListener('resize',function(){resize();init();});
+        resize(); init(); tick();
+    })();
+    </script>
+
+    <!-- HAMBURGER -->
+    <script>
+    (function(){
+        var btn=document.getElementById('hamburger'), nav=document.getElementById('main-nav');
+        if(!btn||!nav) return;
+        btn.addEventListener('click',function(){
+            var open=nav.classList.toggle('open');
+            btn.classList.toggle('open',open);
+            btn.setAttribute('aria-expanded',open);
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click',function(){
+                nav.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded',false);
+            });
+        });
+    })();
+    </script>
+
+    <!-- PROJECTS LOADER -->
+    <script>
+    (function(){
+
+        var GITHUB_USER = 'estarobi50';
+
+        // ── Curated context for known repos ────────────────────────────────────
+        // Provides business-focused problem/solution copy + category tag.
+        // Any new repo NOT listed here will get GitHub description + topics as fallback.
+        var CURATED = {
+            'AWS-Custom-VPC-EFS-Infrastructure-Lab': {
+                tag:      'AWS · Networking & Storage',
+                title:    'Secure VPC + Shared Storage Infrastructure',
+                problem:  'Client needed a production-grade AWS environment with private compute and shared file storage — no public IPs, no SSH exposure, and no bastion host to manage.',
+                solution: 'Built a custom VPC with public/private subnets, deployed EC2 accessed exclusively via AWS Systems Manager (no open ports), and attached EFS for shared storage across instances.'
+            },
+            'AWS-Auto-Scaling-Group-Application-Load-Balancer-ALB-': {
+                tag:      'AWS · High Availability',
+                title:    'Auto-Scaling Web Infrastructure with ALB',
+                problem:  'Client\'s web application ran on a single EC2 instance — one traffic spike or hardware failure meant full outage. Paying for peak capacity 24/7 whether needed or not.',
+                solution: 'Deployed an Auto Scaling Group behind an Application Load Balancer using a hardened Golden AMI. Infrastructure now scales automatically with demand and self-heals on instance failure.'
+            },
+            'Deploying-vmware-sddc-to-aws': {
+                tag:      'VMware · Cloud Extension',
+                title:    'VMware Cloud on AWS — SDDC Deployment',
+                problem:  'Client was running VMware on-prem but needed to extend into AWS for DR and burst capacity — without re-architecting workloads or retraining staff on new tooling.',
+                solution: 'Deployed a 2-host VMware Cloud on AWS SDDC. Existing VMs lifted to AWS without conversion — same vSphere tools, same workflows, with native AWS service integration and elastic capacity.'
+            },
+            'secure-s3-cloudfront-site': {
+                tag:      'AWS · Web Hosting',
+                title:    'Secure Static Site — S3 + CloudFront + HTTPS',
+                problem:  'Client was paying for EC2 web server instances to host a static marketing site — server patching overhead, monthly compute cost, and no global CDN performance.',
+                solution: 'Migrated to S3 static hosting behind a CloudFront distribution with ACM-issued HTTPS cert and www subdomain via Route 53. Near-zero maintenance, global edge caching, sub-$5/month hosting cost.'
+            },
+            'EC2-SSM': {
+                tag:      'AWS · Security',
+                title:    'Private EC2 Management — No SSH, No Bastion',
+                problem:  'Security audit flagged open SSH ports and a bastion host that required its own patching and key management. Compliance required zero inbound ports on production instances.',
+                solution: 'Deployed private EC2 instances with no public IP and no inbound security group rules. Full shell and remote management via AWS Systems Manager Session Manager — audited, logged, IAM-controlled.'
+            },
+            'Create-AWS-account-for-production-': {
+                tag:      'AWS · Account Governance',
+                title:    'Production AWS Account — Hardened from Day One',
+                problem:  'Client had been using a default AWS account created for testing — root credentials used for daily work, no billing alerts, no MFA, no separation between dev and production resources.',
+                solution: 'Built a clean production AWS account: root account locked down with MFA, IAM roles for all human and programmatic access, billing alarms, CloudTrail enabled, and region restrictions applied.'
+            }
+        };
+
+        // Business problem / IT solution copy for repos that have no README sections.
+        // Matched by keyword against the repo name (lowercase, punctuation stripped).
+        var EXTRA = [
+            { match: 'haworth', tag: 'Web Design',
+              problem:  'A dental practice\'s outdated, hard-to-use website made it difficult for new patients to find services, hours and booking info \u2014 sending them to competitors with a stronger online presence.',
+              solution: 'Designed a modern, mobile-friendly website concept with clear service pages, insurance information and one-tap call/appointment actions, built to load fast and be easy for staff to update.' },
+            { match: 'cloudportfolio', tag: 'Cloud \u00b7 Portfolio',
+              problem:  'Cloud and infrastructure work was scattered across repos and screenshots, giving prospective clients no single place to see real builds and the business results behind them.',
+              solution: 'Built a cloud-hosted portfolio site that presents each project in one place \u2014 problem, solution and technology \u2014 on fast, low-maintenance static hosting.' },
+            { match: 'jeanie', tag: 'AWS \u00b7 Serverless & AI',
+              problem:  'Online denim shoppers struggle to find a fit that matches their body shape, which drives high return rates and wasted spend on sizing guesswork.',
+              solution: 'Built an AI-powered body-shape and denim fit analyzer deployed on AWS serverless infrastructure \u2014 scales automatically with demand, with no servers to manage and usage-based cost.' },
+            { match: 'crispyedge', tag: 'Web Design \u00b7 POC',
+              problem:  'A small business needed to validate its brand and online offering quickly, without committing budget to a full website build first.',
+              solution: 'Delivered a proof-of-concept website demonstrating layout, branding and messaging \u2014 ready to iterate into a production site once the concept is approved.' }
+        ];
+
+        function findExtra(repoName){
+            var key = repoName.toLowerCase().replace(/[^a-z0-9]/g,'');
+            for(var i = 0; i < EXTRA.length; i++){
+                if(key.indexOf(EXTRA[i].match) !== -1) return EXTRA[i];
+            }
+            return null;
+        }
+
+        // ── README section parser ───────────────────────────────────────────────
+        // Tries to extract "Business Problem" and "Solution" from a README.
+        // Looks for common heading patterns case-insensitively.
+        function parseReadme(text){
+            var lines  = text.split('\n');
+            var result = { problem: '', solution: '' };
+            var problemPat  = /^#{1,3}\s*(business\s*problem|business\s*need|problem|challenge|the\s*problem)/i;
+            var solutionPat = /^#{1,3}\s*(solution|solution\s*delivered|it\s*solution|what\s*was\s*built|approach)/i;
+            var anyHeading  = /^#{1,3}\s+\S/;
+
+            function extractSection(startIdx){
+                var buf = [];
+                for(var i = startIdx+1; i < lines.length; i++){
+                    if(anyHeading.test(lines[i])) break;
+                    var l = lines[i].trim();
+                    if(l) buf.push(l);
+                    if(buf.length >= 3) break; // cap at ~3 sentences
+                }
+                return buf.join(' ').replace(/\*\*|__|`/g,'').trim();
+            }
+
+            for(var i = 0; i < lines.length; i++){
+                if(problemPat.test(lines[i]) && !result.problem)
+                    result.problem = extractSection(i);
+                if(solutionPat.test(lines[i]) && !result.solution)
+                    result.solution = extractSection(i);
+            }
+            return result;
+        }
+
+        // ── Tech tag inference ─────────────────────────────────────────────────
+        // Maps common keywords in repo names / topics to human-readable tags.
+        var TAG_MAP = [
+            [/vpc|subnet|networking/i, 'VPC'],
+            [/efs|storage/i, 'EFS'],
+            [/alb|load.?bal/i, 'ALB'],
+            [/asg|auto.?scal/i, 'ASG'],
+            [/ec2/i, 'EC2'],
+            [/ssm|session.?manager/i, 'SSM'],
+            [/iam/i, 'IAM'],
+            [/s3/i, 'S3'],
+            [/cloudfront|cdn/i, 'CloudFront'],
+            [/cloudtrail/i, 'CloudTrail'],
+            [/route.?53|dns/i, 'Route 53'],
+            [/acm|certif/i, 'ACM'],
+            [/vmware|vsphere|sddc|vmc/i, 'VMware'],
+            [/zero.?trust/i, 'Zero Trust'],
+            [/terraform/i, 'Terraform'],
+            [/python/i, 'Python'],
+            [/lambda/i, 'Lambda'],
+            [/rds/i, 'RDS'],
+            [/eks|kubernetes|k8s/i, 'EKS'],
+            [/docker|container/i, 'Docker']
+        ];
+
+        function inferTags(repoName, topics){
+            var combined = (repoName + ' ' + topics.join(' ')).toLowerCase();
+            var tags = [];
+            TAG_MAP.forEach(function(pair){
+                if(pair[0].test(combined)) tags.push(pair[1]);
+            });
+            // Also include any GitHub topics as-is (capitalised)
+            topics.forEach(function(t){
+                var label = t.replace(/-/g,' ').toUpperCase();
+                if(tags.indexOf(label) === -1 && label.length <= 14) tags.push(label);
+            });
+            return tags.slice(0,5);
+        }
+
+        // ── Build a project card element ───────────────────────────────────────
+        function buildCard(data, delay){
+            var card = document.createElement('div');
+            card.className = 'project-card';
+            card.style.animationDelay = delay + 'ms';
+
+            var techHTML = data.tech.map(function(t){
+                return '<span class="tech-pill">'+escHtml(t)+'</span>';
+            }).join('');
+
+            card.innerHTML =
+                '<span class="project-tag">'+escHtml(data.tag)+'</span>'+
+                '<h3>'+escHtml(data.title)+'</h3>'+
+                (data.problem ?
+                    '<div class="project-problem">'+
+                        '<h4>Business Problem</h4>'+
+                        '<p>'+escHtml(data.problem)+'</p>'+
+                    '</div>' : '')+
+                (data.solution ?
+                    '<div class="project-solution">'+
+                        '<h4>IT Solution</h4>'+
+                        '<p>'+escHtml(data.solution)+'</p>'+
+                    '</div>' : '')+
+                ((data.hideLink && !data.tech.length) ? '' :
+                '<div class="project-meta">'+
+                    (data.hideLink ? '' : '<a class="project-github-link" href="'+escHtml(data.url)+'" target="_blank" rel="noopener">↗ View on GitHub</a>')+
+                    '<div class="project-tech">'+techHTML+'</div>'+
+                '</div>');
+            return card;
+        }
+
+        function escHtml(s){
+            return String(s)
+                .replace(/&/g,'&amp;')
+                .replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;')
+                .replace(/"/g,'&quot;');
+        }
+
+        // ── Friendly repo name → title ─────────────────────────────────────────
+        function repoToTitle(name){
+            return name.replace(/[-_]+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+        }
+
+        // ── Render error state ─────────────────────────────────────────────────
+        function showError(msg){
+            var grid = document.getElementById('projects-grid');
+            grid.innerHTML =
+                '<div class="error-state" style="grid-column:1/-1;">'+
+                    '<h3>Couldn\'t load from GitHub</h3>'+
+                    '<p>'+escHtml(msg)+'</p>'+
+                    '<p style="margin-top:.75rem;opacity:.5;">Check console for details or try refreshing.</p>'+
+                '</div>';
+            setStatus('');
+        }
+
+        function setStatus(msg){
+            var el = document.getElementById('status-bar');
+            el.innerHTML = msg ? '<div class="container">'+msg+'</div>' : '';
+        }
+
+        // ── Main loader ────────────────────────────────────────────────────────
+        async function loadProjects(){
+            var grid = document.getElementById('projects-grid');
+
+            try {
+                // 1. Fetch repo list
+                var res = await fetch('https://api.github.com/users/'+GITHUB_USER+'/repos?sort=updated&per_page=30&type=public');
+                if(!res.ok) throw new Error('GitHub API responded with '+res.status);
+                var repos = await res.json();
+
+                // Filter out forks, keep only repos with actual content
+                repos = repos.filter(function(r){ return !r.fork; });
+
+                if(!repos.length){
+                    showError('No public repositories found for @'+GITHUB_USER+'.');
+                    return;
+                }
+
+                setStatus('Found '+repos.length+' repos — loading details...');
+
+                // 2. For each repo, enrich with curated data or README parse
+                var cards = [];
+                var delay = 0;
+
+                for(var i = 0; i < repos.length; i++){
+                    var repo = repos[i];
+                    var curated = CURATED[repo.name];
+                    var cardData = {};
+
+                    if(curated){
+                        // Use curated copy directly
+                        cardData = {
+                            tag:      curated.tag,
+                            title:    curated.title,
+                            problem:  curated.problem,
+                            solution: curated.solution,
+                            tech:     inferTags(repo.name, repo.topics || []),
+                            url:      repo.html_url
+                        };
+                    } else {
+                        // Try to fetch README and parse it
+                        var problem = '', solution = '';
+                        try {
+                            var readmeRes = await fetch('https://api.github.com/repos/'+GITHUB_USER+'/'+repo.name+'/readme',
+                                { headers: { 'Accept': 'application/vnd.github.v3.raw' }});
+                            if(readmeRes.ok){
+                                var readmeText = await readmeRes.text();
+                                var parsed = parseReadme(readmeText);
+                                problem  = parsed.problem;
+                                solution = parsed.solution;
+                            }
+                        } catch(e){ /* silently skip */ }
+
+                        // Fall back to GitHub description if README parse found nothing
+                        if(!problem && !solution && repo.description){
+                            solution = repo.description;
+                        }
+
+                        // Curated business copy for known repos without README sections
+                        var extra = findExtra(repo.name);
+                        if(extra){ problem = extra.problem; solution = extra.solution; }
+
+                        // Infer tag from repo name + topics
+                        var topicStr = (repo.topics||[]).join(' ');
+                        var tag = 'GitHub Project';
+                        if(/aws|ec2|s3|vpc|lambda|rds|eks/i.test(repo.name+' '+topicStr)) tag = 'AWS';
+                        if(/vmware|vsphere|vmc|sddc/i.test(repo.name+' '+topicStr)) tag = 'VMware';
+                        if(/terraform/i.test(repo.name+' '+topicStr)) tag = 'IaC · Terraform';
+                        if(/azure/i.test(repo.name+' '+topicStr)) tag = 'Azure';
+                        if(/gcp|google.?cloud/i.test(repo.name+' '+topicStr)) tag = 'GCP';
+
+                        cardData = {
+                            tag:      extra ? extra.tag : tag,
+                            title:    repoToTitle(repo.name),
+                            problem:  problem,
+                            solution: solution,
+                            tech:     inferTags(repo.name, repo.topics || []),
+                            url:      repo.html_url,
+                            hideLink: true   // GitHub link removed from non-curated cards
+                        };
+                    }
+
+                    cards.push(buildCard(cardData, delay));
+                    delay += 60;
+                }
+
+                // 3. Render
+                grid.innerHTML = '';
+                cards.forEach(function(c){ grid.appendChild(c); });
+                setStatus('');
+
+            } catch(err) {
+                console.error('[Projects] Load failed:', err);
+                // Fall back to curated data only
+                grid.innerHTML = '';
+                var delay = 0;
+                Object.keys(CURATED).forEach(function(name){
+                    var c = CURATED[name];
+                    var cardData = {
+                        tag:      c.tag,
+                        title:    c.title,
+                        problem:  c.problem,
+                        solution: c.solution,
+                        tech:     inferTags(name, []),
+                        url:      'https://github.com/'+GITHUB_USER+'/'+name
+                    };
+                    grid.appendChild(buildCard(cardData, delay));
+                    delay += 60;
+                });
+                setStatus('<span style="color:rgba(255,180,80,0.8)">Showing cached projects — live GitHub sync unavailable</span>');
+            }
+        }
+
+        loadProjects();
+    })();
+    </script>
+
+</body>
+</html>
