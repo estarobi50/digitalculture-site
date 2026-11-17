@@ -3600,6 +3600,22 @@ header,header.scrolled{
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   header,header.scrolled{background:rgba(20,30,44,.88)!important}
 }
+/* ===== glass tab nav: sliding glass pill that follows hover + the section you're in ===== */
+@media (min-width:769px){
+  #main-nav ul{position:relative}
+  #main-nav ul li{position:relative;z-index:1}
+  header #main-nav a,header #main-nav a:hover,header #main-nav a:focus-visible{background:transparent!important;box-shadow:none!important;color:rgba(255,255,255,.82)!important;
+    transition:color .25s ease}
+  header #main-nav a:hover,header #main-nav a:focus-visible,header #main-nav a.is-active{color:#fff!important}
+  .nav-glass-pill{position:absolute;top:0;left:0;width:0;height:0;border-radius:999px;pointer-events:none;z-index:0;opacity:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.07) 100%),rgba(90,169,255,.24);
+    border:1px solid rgba(255,255,255,.38);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -8px 14px -8px rgba(90,169,255,.55),0 0 20px rgba(90,169,255,.45),0 8px 20px -8px rgba(31,111,235,.7);
+    -webkit-backdrop-filter:blur(10px) saturate(1.7);backdrop-filter:blur(10px) saturate(1.7);
+    transition:transform .5s cubic-bezier(.34,1.45,.64,1),width .5s cubic-bezier(.34,1.45,.64,1),height .5s cubic-bezier(.34,1.45,.64,1),opacity .3s ease}
+  .nav-glass-pill.on{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){.nav-glass-pill{transition:opacity .2s}}
 /* phones: lighter effects, bigger tap targets, no tiny text */
 @media (max-width:768px){
   #cine-bg .cine-img{animation:none}
@@ -5408,6 +5424,47 @@ header,header.scrolled{
     },{passive:true});
   }
   frame();
+})();
+</script>
+
+<script id="glass-tabs-js">
+(function(){
+  var nav=document.getElementById('main-nav'); if(!nav) return;
+  var ul=nav.querySelector('ul'); if(!ul) return;
+  var links=[].slice.call(ul.querySelectorAll('a'));
+  var pill=document.createElement('span'); pill.className='nav-glass-pill'; pill.setAttribute('aria-hidden','true'); ul.insertBefore(pill,ul.firstChild);
+  var mq=window.matchMedia('(min-width: 769px)'), active=null, current=null;
+  function moveTo(a){
+    if(!a||!mq.matches){pill.classList.remove('on');return;}
+    var r=a.getBoundingClientRect(),u=ul.getBoundingClientRect();
+    pill.style.width=r.width+'px'; pill.style.height=r.height+'px';
+    pill.style.transform='translate('+(r.left-u.left)+'px,'+(r.top-u.top)+'px)';
+    pill.classList.add('on'); current=a;
+  }
+  function rest(){ moveTo(active); }
+  links.forEach(function(a){
+    a.addEventListener('mouseenter',function(){moveTo(a)});
+    a.addEventListener('focus',function(){moveTo(a)});
+    a.addEventListener('blur',rest);
+  });
+  ul.addEventListener('mouseleave',rest);
+  // scroll-spy: highlight the tab for the section you're reading
+  var map=links.map(function(a){var h=a.getAttribute('href')||'';return h.charAt(0)==='#'&&h.length>1?{a:a,el:document.getElementById(h.slice(1))}:null}).filter(function(x){return x&&x.el});
+  var tick=false;
+  function spy(){
+    tick=false; var line=window.innerHeight*0.38, hit=null;
+    map.forEach(function(m){var r=m.el.getBoundingClientRect(); if(r.top<=line && r.bottom>line) hit=m.a;});
+    if(hit!==active){
+      links.forEach(function(a){a.classList.toggle('is-active',a===hit)});
+      active=hit; if(!ul.matches(':hover')) rest();
+    }
+  }
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(spy)}},{passive:true});
+  window.addEventListener('resize',function(){moveTo(ul.matches(':hover')?current:active)});
+  mq.addEventListener&&mq.addEventListener('change',rest);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){spy();rest()});
+  window.addEventListener('load',function(){spy();rest()});
+  spy();
 })();
 </script>
 </body>
