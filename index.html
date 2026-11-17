@@ -3569,6 +3569,8 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
 .hero .hero-copy{text-shadow:none}
 @media(max-width:768px){.hero{background:transparent!important;margin:0!important;min-height:0}}
 
+/* one continuous backdrop: drop the hero-only vignette/shade that left a dark band ending at the hero edge */
+.hero .hx-vig,.hero .hero-shade{display:none!important}
 /* keep body copy legible while the photo is still visible behind later sections */
 .services,.process,.stats,.why-choose,.pricing,.testimonials,.faq,.contact{position:relative}
 @media (prefers-reduced-motion:reduce){
