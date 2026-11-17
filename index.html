@@ -3529,8 +3529,60 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
 }
 @media(max-width:360px){.hero h1.hero-title{font-size:.84rem!important;letter-spacing:.02em!important}}
 </style>
+
+<style id="cinematic-hero">
+/* ===== Cinematic fixed hero backdrop: follows the scroll, recedes, softens ===== */
+#cine-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#07090d}
+#cine-bg .cine-stage{position:absolute;inset:-14%;will-change:transform,filter;
+  transform:translate3d(0,0,0) scale(1.12);transform-origin:50% 42%}
+#cine-bg .cine-img{position:absolute;inset:0;
+  background:url("hero-datacenter-blue.jpg") center 50%/cover no-repeat;
+  animation:cineDrift 38s ease-in-out infinite alternate}
+@keyframes cineDrift{from{transform:scale(1) translate3d(-1.2%,0,0)}to{transform:scale(1.07) translate3d(1.2%,-.8%,0)}}
+/* purple brand grade over the photo */
+#cine-bg .cine-grade{position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,13,24,.82) 0%,rgba(5,13,24,.45) 55%,rgba(5,13,24,.2) 100%),
+    linear-gradient(180deg,rgba(5,13,24,.35) 0%,rgba(5,13,24,0) 30%,rgba(5,13,24,.85) 100%)}
+/* anamorphic light streak */
+#cine-bg .cine-streak{position:absolute;left:-10%;right:-10%;top:44%;height:2px;opacity:.5;
+  background:linear-gradient(90deg,transparent,rgba(140,200,255,.0) 10%,rgba(160,215,255,.85) 50%,rgba(140,200,255,0) 90%,transparent);
+  filter:blur(1.5px);box-shadow:0 0 42px 10px rgba(110,170,255,.22);mix-blend-mode:screen}
+/* depth fog + vignette + scroll darkening live OUTSIDE the stage so they never scale away */
+#cine-bg .cine-fog{position:absolute;inset:0;opacity:0;
+  background:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(7,9,13,.25) 0%,rgba(7,9,13,.92) 100%)}
+#cine-bg .cine-vig{position:absolute;inset:0;
+  background:radial-gradient(ellipse 120% 95% at 50% 46%,transparent 52%,rgba(2,5,10,.72) 100%)}
+#cine-bg .cine-grain{position:absolute;inset:-50%;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:cineGrain .9s steps(6) infinite}
+@keyframes cineGrain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+/* letterbox bars ease in as you scroll */
+#cine-bg .cine-bar{position:absolute;left:0;right:0;height:7vh;background:#030509;transform:scaleY(0);transition:none}
+#cine-bg .cine-bar.top{top:0;transform-origin:top}
+#cine-bg .cine-bar.bot{bottom:0;transform-origin:bottom}
+
+/* the hero stops being a boxed card: it becomes a window onto the fixed backdrop */
+.hero{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;margin:0!important;
+  min-height:min(92vh,860px)}
+.hero::before,.hero::after{display:none!important}
+.hero .hero-copy{text-shadow:none}
+@media(max-width:768px){.hero{background:transparent!important;margin:0!important;min-height:0}}
+
+/* keep body copy legible while the photo is still visible behind later sections */
+.services,.process,.stats,.why-choose,.pricing,.testimonials,.faq,.contact{position:relative}
+@media (prefers-reduced-motion:reduce){
+  #cine-bg .cine-img,#cine-bg .cine-grain{animation:none}
+}
+</style>
 </head>
 <body>
+<div id="cine-bg" aria-hidden="true">
+  <div class="cine-stage"><div class="cine-img"></div><div class="cine-grade"></div><div class="cine-streak"></div></div>
+  <div class="cine-fog"></div><div class="cine-vig"></div><div class="cine-grain"></div>
+  <div class="cine-bar top"></div><div class="cine-bar bot"></div>
+</div>
+
 <div id="dc-intro" aria-label="Digital Culture IT Solutions intro">
   <video id="dc-intro-video" playsinline preload="auto" poster="dc-intro-poster.jpg">
     <source src="dc-intro.mp4" type="video/mp4">
@@ -5280,6 +5332,40 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
     evs.forEach(function (n) { window.addEventListener(n, wake, true); });
   }
   if (p && p.then) { p.then(paint, startMuted); } else { paint(); }
+})();
+</script>
+
+<script id="cinematic-hero-js">
+(function(){
+  var bg=document.getElementById('cine-bg'); if(!bg) return;
+  var stage=bg.querySelector('.cine-stage'), fog=bg.querySelector('.cine-fog'),
+      streak=bg.querySelector('.cine-streak'), bt=bg.querySelector('.cine-bar.top'), bb=bg.querySelector('.cine-bar.bot');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mx=0,my=0,tx=0,ty=0,ticking=false;
+  function clamp(v,a,b){return Math.min(b,Math.max(a,v));}
+  function ease(t){return t*t*(3-2*t);}
+  function frame(){
+    ticking=false;
+    var vh=window.innerHeight, y=window.pageYOffset||document.documentElement.scrollTop||0;
+    var p=ease(clamp(y/(vh*2.6),0,1));            // 0 at top -> 1 after ~2.6 screens
+    var scale=1.14-0.30*p;                         // dolly back: 1.14 -> 0.84 (stage is oversized so edges stay hidden)
+    var lift=-p*vh*0.10;                           // slow parallax drift upward
+    var blur=p*6.5, bright=1-0.52*p, sat=1-0.25*p;
+    stage.style.transform='translate3d('+(tx*-14).toFixed(2)+'px,'+(lift+ty*-10).toFixed(2)+'px,0) scale('+scale.toFixed(4)+')';
+    stage.style.filter='blur('+blur.toFixed(2)+'px) brightness('+bright.toFixed(3)+') saturate('+sat.toFixed(3)+')';
+    fog.style.opacity=(0.15+0.78*p).toFixed(3);
+    streak.style.opacity=(0.5*(1-p)).toFixed(3);
+    var bars=clamp(p*2.2,0,1); bt.style.transform=bb.style.transform='scaleY('+bars.toFixed(3)+')';
+  }
+  function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',req);
+  if(!reduce){
+    window.addEventListener('pointermove',function(e){
+      tx=(e.clientX/window.innerWidth-.5); ty=(e.clientY/window.innerHeight-.5); req();
+    },{passive:true});
+  }
+  frame();
 })();
 </script>
 </body>
