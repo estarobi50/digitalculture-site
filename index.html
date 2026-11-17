@@ -3572,6 +3572,16 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
 /* one continuous backdrop: drop the hero-only vignette/shade that left a dark band ending at the hero edge */
 .hero .hx-vig,.hero .hero-shade{display:none!important}
 .hero + .section-divider{display:none!important}
+/* phones: lighter effects, bigger tap targets, no tiny text */
+@media (max-width:768px){
+  #cine-bg .cine-img{animation:none}
+  #cine-bg .cine-grain,#cine-bg .cine-streak{display:none}
+  footer li a,footer .footer-col a{display:inline-flex!important;align-items:center;min-height:44px}
+  .hero-disclaimer{font-size:.75rem!important}
+  .services-secondary-label{font-size:.78rem!important}
+  .founder-badge{font-size:.74rem!important;line-height:1.5}
+  .header-phone{font-size:.8rem!important}
+}
 /* keep body copy legible while the photo is still visible behind later sections */
 .services,.process,.stats,.why-choose,.pricing,.testimonials,.faq,.contact{position:relative}
 @media (prefers-reduced-motion:reduce){
@@ -5344,6 +5354,7 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
   var stage=bg.querySelector('.cine-stage'), fog=bg.querySelector('.cine-fog'),
       streak=bg.querySelector('.cine-streak'), bt=bg.querySelector('.cine-bar.top'), bb=bg.querySelector('.cine-bar.bot');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mobile=window.matchMedia('(max-width: 768px)').matches;
   var mx=0,my=0,tx=0,ty=0,ticking=false;
   function clamp(v,a,b){return Math.min(b,Math.max(a,v));}
   function ease(t){return t*t*(3-2*t);}
@@ -5353,7 +5364,7 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
     var p=ease(clamp(y/(vh*2.6),0,1));            // 0 at top -> 1 after ~2.6 screens
     var scale=1.14-0.30*p;                         // dolly back: 1.14 -> 0.84 (stage is oversized so edges stay hidden)
     var lift=-p*vh*0.10;                           // slow parallax drift upward
-    var blur=p*6.5, bright=1-0.52*p, sat=1-0.25*p;
+    var blur=p*(mobile?2:6.5), bright=1-0.52*p, sat=1-0.25*p;
     stage.style.transform='translate3d('+(tx*-14).toFixed(2)+'px,'+(lift+ty*-10).toFixed(2)+'px,0) scale('+scale.toFixed(4)+')';
     stage.style.filter='blur('+blur.toFixed(2)+'px) brightness('+bright.toFixed(3)+') saturate('+sat.toFixed(3)+')';
     fog.style.opacity=(0.15+0.78*p).toFixed(3);
@@ -5363,7 +5374,7 @@ footer{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.2)),r
   function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
   window.addEventListener('scroll',req,{passive:true});
   window.addEventListener('resize',req);
-  if(!reduce){
+  if(!reduce&&!mobile){
     window.addEventListener('pointermove',function(e){
       tx=(e.clientX/window.innerWidth-.5); ty=(e.clientY/window.innerHeight-.5); req();
     },{passive:true});
