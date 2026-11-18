@@ -3623,6 +3623,13 @@ header::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer
   mix-blend-mode:screen;transition:opacity .35s ease}
 header:hover::after{opacity:1}
 header>*{position:relative;z-index:1}
+/* shorter floating capsule instead of an edge-to-edge bar */
+@media(min-width:769px){
+  header,header.scrolled{
+    left:0!important;right:0!important;width:auto!important;
+    max-width:min(1080px,calc(100% - 2*clamp(16px,4vw,56px)))!important;
+    margin:14px auto 0!important;border-radius:34px!important}
+}
 /* ===== glass tab nav: sliding glass pill that follows hover + the section you're in ===== */
 @media (min-width:769px){
   #main-nav ul{position:relative}
