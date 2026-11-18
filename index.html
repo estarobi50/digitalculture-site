@@ -66,6 +66,7 @@
         "Cloud Migration (AWS, Azure, GCP)",
         "Managed IT Services",
         "Web Development and Design",
+        "AI Business Assistant Setup and Automation",
         "Microsoft 365 Deployment",
         "VMware Consulting",
         "Network Architecture",
@@ -2270,6 +2271,26 @@
             font-size: 0.9rem;
             line-height: 1.65;
         }
+        /* AI Solutions: full-width card with two-column bullet list */
+        .services-secondary .service-card.ai-card {
+            grid-column: 1 / -1;
+            padding: 2.25rem 2.5rem;
+        }
+        .service-card.ai-card p {
+            max-width: 62rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .service-card.ai-card .service-points {
+            margin-top: 1.25rem;
+            column-count: 2;
+            column-gap: 2.5rem;
+        }
+        .service-card.ai-card .service-points li { break-inside: avoid; }
+        @media (max-width: 768px) {
+            .services-secondary .service-card.ai-card { padding: 1.75rem 1.5rem; }
+            .service-card.ai-card .service-points { column-count: 1; }
+        }
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
@@ -4033,10 +4054,18 @@ header>*{position:relative;z-index:1}
                     <p>Workstation setup, software deployment, and end-user support so your team stays productive.</p>
                 </div>
                 <!-- AI Solutions -->
-                <div class="service-card secondary-card fade-in">
+                <div class="service-card secondary-card ai-card fade-in">
                     <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="36" height="36" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="19.6" cy="7.8" r="1.5"/><circle cx="19.6" cy="16.2" r="1.5"/><circle cx="12" cy="20.5" r="1.5"/><circle cx="4.4" cy="16.2" r="1.5"/><circle cx="4.4" cy="7.8" r="1.5"/><line x1="12" y1="5" x2="12" y2="9.5"/><line x1="18.2" y1="8.5" x2="14.2" y2="10.8"/><line x1="18.2" y1="15.5" x2="14.2" y2="13.2"/><line x1="12" y1="19" x2="12" y2="14.5"/><line x1="5.8" y1="15.5" x2="9.8" y2="13.2"/><line x1="5.8" y1="8.5" x2="9.8" y2="10.8"/></svg></div>
-                    <h3>AI Solutions</h3>
-                    <p>AI-assisted app and site deployment on AWS, self-hosted with full control and lower long-term costs.</p>
+                    <h3>AI Solutions &amp; Business Assistants</h3>
+                    <p>Practical AI for small business. We set up AI assistants to take over the routine work that eats into your day, and we deploy AI-assisted apps and sites on AWS that you own and control, self-hosted with lower long-term costs. Everything is configured securely, and your team is trained to use it well.</p>
+                    <ul class="service-points">
+                        <li>Workflow review to find tasks AI can safely take off your plate</li>
+                        <li>AI assistants (Microsoft Copilot, Claude, ChatGPT) set up inside your existing tools</li>
+                        <li>Automation of email drafts, scheduling, document summaries, and client follow-ups</li>
+                        <li>AI-assisted apps and websites, self-hosted on AWS with full control of your data</li>
+                        <li>Access controls and privacy safeguards for confidential information</li>
+                        <li>Hands-on staff training and written AI-usage guidelines</li>
+                    </ul>
                 </div>
             </div>
         </div>
