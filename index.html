@@ -3589,6 +3589,41 @@ header,header.scrolled{
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   header,header.scrolled{background:rgba(20,30,44,.92)!important}
 }
+/* ===== liquid glass: lensed backdrop, specular rim, cursor-following sheen ===== */
+header,header.scrolled{
+  background:
+    radial-gradient(130% 180% at 8% -30%,rgba(255,255,255,.20) 0%,rgba(255,255,255,0) 55%),
+    linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 40%),
+    rgba(24,34,48,.5)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.7) brightness(.82)!important;
+          backdrop-filter:blur(14px) saturate(1.7) brightness(.82)!important;
+  border:1px solid rgba(255,255,255,.20)!important;
+  box-shadow:
+    inset 0 1.5px 1px rgba(255,255,255,.55),           /* top specular edge */
+    inset 0 -1px 1px rgba(255,255,255,.16),            /* bottom bounce */
+    inset 10px 0 18px -12px rgba(255,255,255,.30),     /* left edge light */
+    inset -10px 0 18px -12px rgba(140,190,255,.28),    /* right edge light (cool) */
+    inset 0 0 28px rgba(110,170,255,.10),              /* inner glow */
+    0 22px 46px -18px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.25)!important;
+  overflow:hidden;
+}
+/* chromium: real refraction of whatever is behind the bar */
+@supports (backdrop-filter:url(#lg-lens)){
+  @media(min-width:769px){
+    header,header.scrolled{
+      -webkit-backdrop-filter:blur(8px) url(#lg-lens) saturate(1.7) brightness(.82)!important;
+              backdrop-filter:blur(8px) url(#lg-lens) saturate(1.7) brightness(.82)!important}
+  }
+}
+/* glossy sweep + a soft highlight that follows the cursor */
+header::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:linear-gradient(112deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 22%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 68%,rgba(255,255,255,.10) 100%);
+  mix-blend-mode:screen}
+header::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;
+  background:radial-gradient(220px circle at var(--lg-x,50%) var(--lg-y,0%),rgba(255,255,255,.30),rgba(255,255,255,0) 65%);
+  mix-blend-mode:screen;transition:opacity .35s ease}
+header:hover::after{opacity:1}
+header>*{position:relative;z-index:1}
 /* ===== glass tab nav: sliding glass pill that follows hover + the section you're in ===== */
 @media (min-width:769px){
   #main-nav ul{position:relative}
@@ -3599,7 +3634,7 @@ header,header.scrolled{
   .nav-glass-pill{position:absolute;top:0;left:0;width:0;height:0;border-radius:999px;pointer-events:none;z-index:0;opacity:0;
     background:linear-gradient(180deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.03) 100%),rgba(90,169,255,.18);
     border:1px solid rgba(90,169,255,.45);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -8px 14px -8px rgba(90,169,255,.55),0 0 20px rgba(90,169,255,.45),0 8px 20px -8px rgba(31,111,235,.7);
+    box-shadow:inset 0 1.5px 1px rgba(255,255,255,.75),inset 0 -1px 1px rgba(255,255,255,.25),inset 0 -10px 16px -8px rgba(90,169,255,.55),inset 8px 0 12px -8px rgba(255,255,255,.35),0 0 22px rgba(90,169,255,.45),0 10px 22px -8px rgba(31,111,235,.75);
     -webkit-backdrop-filter:blur(10px) saturate(1.7);backdrop-filter:blur(10px) saturate(1.7);
     transition:transform .5s cubic-bezier(.34,1.45,.64,1),width .5s cubic-bezier(.34,1.45,.64,1),height .5s cubic-bezier(.34,1.45,.64,1),opacity .3s ease}
   .nav-glass-pill.on{opacity:1}
@@ -3623,6 +3658,13 @@ header,header.scrolled{
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="lg-lens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.010 0.022" numOctaves="2" seed="11" result="n"/>
+    <feGaussianBlur in="n" stdDeviation="3" result="nb"/>
+    <feDisplacementMap in="SourceGraphic" in2="nb" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 <div id="cine-bg" aria-hidden="true">
   <div class="cine-stage"><div class="cine-img"></div><div class="cine-grade"></div><div class="cine-streak"></div></div>
   <div class="cine-fog"></div><div class="cine-vig"></div><div class="cine-grain"></div>
@@ -5448,6 +5490,10 @@ header,header.scrolled{
   var ul=nav.querySelector('ul'); if(!ul) return;
   var links=[].slice.call(ul.querySelectorAll('a'));
   var pill=document.createElement('span'); pill.className='nav-glass-pill'; pill.setAttribute('aria-hidden','true'); ul.insertBefore(pill,ul.firstChild);
+  var hdr=document.querySelector('header');
+  if(hdr&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    hdr.addEventListener('pointermove',function(e){var r=hdr.getBoundingClientRect();hdr.style.setProperty('--lg-x',(e.clientX-r.left)+'px');hdr.style.setProperty('--lg-y',(e.clientY-r.top)+'px')},{passive:true});
+  }
   var mq=window.matchMedia('(min-width: 769px)'), active=null, current=null;
   function moveTo(a){
     if(!a||!mq.matches){pill.classList.remove('on');return;}
