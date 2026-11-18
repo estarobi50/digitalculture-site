@@ -5408,10 +5408,11 @@ header,header.scrolled{
   function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
   function loop(){
     if(looping) return; looping=true;
+    var prev=performance.now();
     (function step(){
-      var now=performance.now();
-      if(now-lastWheel>140) target*=0.93;           // ease back out once the wheel stops
-      boost+=(target-boost)*0.14;
+      var now=performance.now(), k=Math.min(8,(now-prev)/16.7); prev=now;   // frame-rate independent (k = frames elapsed at 60fps)
+      if(now-lastWheel>140) target*=Math.pow(0.93,k);   // ease back out once the wheel stops
+      boost+=(target-boost)*(1-Math.pow(0.86,k));
       frame();
       if(boost>0.003||target>0.003) requestAnimationFrame(step);
       else{boost=0;target=0;looping=false;frame();}
